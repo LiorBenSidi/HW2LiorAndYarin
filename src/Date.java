@@ -21,6 +21,6 @@ public class Date {
         Short DD = this.day;
         byte MM = this.month;
         int YYYY = this.year;
-        return DD + "/" + MM + "/" + YYYY;
+        return DD + "/" + MM + "/" + YYYY ;
     }
 }
