@@ -1,8 +1,8 @@
 public class DateTime extends Date {
     private int hour; // A number between 0 and 23
     private int minute; // A number between 0 and 59
-    public DateTime(int day, int month, int year, int hour, int minute) {
-        super(day, month, year);
+    public DateTime(int year, int month, int day, int hour, int minute) {
+        super(year, month, day);
         if(hour < 0 || hour > 23){
             this.hour = 0;
         }else{
@@ -15,20 +15,26 @@ public class DateTime extends Date {
         }
     }
     public void setMonth(int month) {
-        this.month = month;
+        super.setMonth(month);
     }
     public void setHour(int hour) {
-        this.hour = hour;
+        if(!(hour < 0 || hour > 23)){
+            this.hour = hour;
+        }
     }
 
     public void setMinute(int minute) {
-        this.minute = minute;
+        if(!(minute < 0 || minute > 59)){
+            this.minute = minute;
+        }
     }
 
     @Override
     public boolean equals(Object other) {
-        // instance of
-        if(!(this.hashCode() == other.hashCode())) {
+        if(other == null) {
+            return false;
+        }
+        if(!(this.hashCode() == other.hashCode()) || !(other instanceof DateTime)) {
             return false;
         }
         DateTime otherDateTime = (DateTime) other;

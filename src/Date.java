@@ -3,7 +3,7 @@ public class Date {
     protected int month;
     protected int year; // A number between -9999 to 9999
 
-    public Date(int day, int month, int year) {
+    public Date(int year, int month, int day) {
         if(day<=0 || day>31){
             this.day = 1;
         }else{
@@ -20,10 +20,19 @@ public class Date {
             this.year = year;
         }
     }
+
+    public void setMonth(int month) {
+        if(!(month<=0 || month > 12)){
+            this.month = month;
+        }
+    }
+
     @Override
     public boolean equals(Object other) {
-        // instance of
-        if(!(this.hashCode() == other.hashCode())) {
+        if(other == null) {
+            return false;
+        }
+        if(!(this.hashCode() == other.hashCode()) || !(other instanceof Date)) { // בעיה מבחינת אם איכשהו אותו מס' גיבוב
             return false;
         }
         Date otherDate = (Date) other;
@@ -35,22 +44,43 @@ public class Date {
     }
     @Override
     public String toString() {
-        // להוסיף 0 לפני מס' דו-ספרתי
         int DD = this.day;
         int MM = this.month;
         int YYYY = this.year;
-        String strHh;
-        String strMm;
-        if(hh < 10) {
-            strHh = "0" + hh;
+        String strDD, strMM, strYYYY;
+        if(DD < 10) {
+            strDD = "0" + DD;
         } else {
-            strHh = String.valueOf(hh);
+            strDD = String.valueOf(DD);
         }
-        if(mm < 10) {
-            strMm = "0" + mm;
+        if(MM < 10) {
+            strMM = "0" + MM;
         } else {
-            strMm = String.valueOf(mm);
+            strMM = String.valueOf(MM);
         }
-        return DD + "/" + MM + "/" + YYYY ;
+        if(YYYY > -1) {
+            if(YYYY < 10) {
+                strYYYY = "000" + YYYY;
+            } else if(YYYY < 100) {
+                strYYYY = "00" + YYYY;
+            } else if(YYYY < 1000) {
+                strYYYY = "0" + YYYY;
+            } else {
+                strYYYY = String.valueOf(YYYY);
+            }
+        } else {
+            YYYY *= (-1);
+            if(YYYY < 10) {
+                strYYYY = "-000" + YYYY;
+            } else if(YYYY < 100) {
+                strYYYY = "-00" + YYYY;
+            } else if(YYYY < 1000) {
+                strYYYY = "-0" + YYYY;
+            } else {
+                strYYYY = String.valueOf(YYYY);
+            }
+        }
+
+        return strDD + "/" + strMM + "/" + strYYYY ;
     }
 }
