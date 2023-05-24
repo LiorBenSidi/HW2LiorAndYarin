@@ -1,9 +1,9 @@
 public class Date {
-    protected short day;
-    protected byte month;
+    protected int day;
+    protected int month;
     protected int year; // A number between -9999 to 9999
 
-    public Date(short day, byte month, int year) {
+    public Date(int day, int month, int year) {
         if(day<=0 || day>31){
             this.day = 1;
         }else{
@@ -22,17 +22,35 @@ public class Date {
     }
     @Override
     public boolean equals(Object other) {
-        if(!(other instanceof Date) /**|| !(other.getClass() == Date.class) we cant use getClass**/) {
+        // instance of
+        if(!(this.hashCode() == other.hashCode())) {
             return false;
         }
         Date otherDate = (Date) other;
         return this.day == otherDate.day && this.month == otherDate.month && this.year == otherDate.year;
     }
     @Override
+    public int hashCode() {
+        return 31 * day + 12 * month + 9999 * year;
+    }
+    @Override
     public String toString() {
-        Short DD = this.day;
-        byte MM = this.month;
+        // להוסיף 0 לפני מס' דו-ספרתי
+        int DD = this.day;
+        int MM = this.month;
         int YYYY = this.year;
+        String strHh;
+        String strMm;
+        if(hh < 10) {
+            strHh = "0" + hh;
+        } else {
+            strHh = String.valueOf(hh);
+        }
+        if(mm < 10) {
+            strMm = "0" + mm;
+        } else {
+            strMm = String.valueOf(mm);
+        }
         return DD + "/" + MM + "/" + YYYY ;
     }
 }
