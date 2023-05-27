@@ -1,19 +1,20 @@
-public class Constant implements Function {
-    private final double c;
+public class Constant extends Polynomial {
+    private final Polynomial f;
     public Constant(double c) {
-        this.c = c;
+        this.f = new Polynomial(c);
     }
 
     @Override
     public double valueAt(double x) {
-        return c;
+        return f.valueAt(x);
     }
+
     @Override
     public String toString(){
-        return String.valueOf(this.c);
+        return f.toString();
     }
     @Override
-    public Function derivative() {
+    public Polynomial derivative() {
         return new Constant(0);
     }
 
@@ -41,6 +42,6 @@ public class Constant implements Function {
 
     @Override
     public Polynomial taylorPolynomial(int n) {
-        return new Polynomial(this.c);
+        return this.f;
     }
 }

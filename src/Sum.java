@@ -9,12 +9,16 @@ public class Sum implements Function {
 
     @Override
     public double valueAt(double x) {
-        return f.valueAt(x) + g.valueAt(x);
+        /* Sum of 2 polynomials. */
+        if(f instanceof Polynomial && g instanceof Polynomial) {
+            return f
+        }
+
     }
 
     @Override
     public Function derivative() {
-        return new Sum(f.derivative(), g.derivative());
+        return ;
     }
 
     @Override

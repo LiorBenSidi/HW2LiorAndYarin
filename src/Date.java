@@ -14,7 +14,7 @@ public class Date {
         }else{
             this.month = month;
         }
-        if(year < -9999 || year > 9999){
+        if(year < -3999 || year > 3999){
             this.year = 0;
         }else{
             this.year = year;
@@ -40,7 +40,7 @@ public class Date {
     }
     @Override
     public int hashCode() {
-        return 31 * day + 12 * month + 9999 * year;
+        return 31 * day + 12 * month + 3999 * year;
     }
     @Override
     public String toString() {
