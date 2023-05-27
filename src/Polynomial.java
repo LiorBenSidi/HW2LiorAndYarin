@@ -55,6 +55,7 @@ public class Polynomial implements Function {
                 }
             }
         }
+        return String.valueOf(functionString);
     }
     @Override
     public Polynomial derivative() {
@@ -103,7 +104,6 @@ public class Polynomial implements Function {
 
     @Override
     public double newtonRaphsonMethod(double a, double epsilon) {
-        int k = 0;
         while (!(Math.abs(this.valueAt(a)) < epsilon)){
             a = Withdrawal(a);
         }
