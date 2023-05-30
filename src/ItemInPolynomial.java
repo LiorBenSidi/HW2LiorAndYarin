@@ -1,21 +1,39 @@
-public class ItemInPolynomial { // Class for each item in a polynomial {ai*x^i}
-    private final double ai;
-    private final int i;
-    public ItemInPolynomial(double ai, int i) {
-        this.ai = ai;
-        this.i = i;
-    }
-    public double getAi() {
-        return ai;
+public class ItemInPolynomial {
+    private double coefficient;
+    private final int exponent;
+
+    public ItemInPolynomial(double coefficient, int exponent) {
+        this.coefficient = coefficient;
+        this.exponent = exponent;
     }
 
-    public int getI() {
-        return i;
+    public double getCoefficient() {
+        return coefficient;
     }
-    public boolean isDoubleInt(double d) {
-        //select a "tolerance range" for being an integer
-        double TOLERANCE = 1E-5;
-        //do not use (int)d, due to weird floating point conversions!
-        return Math.abs(Math.floor(d) - d) < TOLERANCE;
+
+    public int getExponent() {
+        return exponent;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        if (coefficient != 0) {
+            if (coefficient != 1) {
+                sb.append(coefficient);
+            }
+            if (exponent == 1) {
+                sb.append("x");
+            } else if (exponent > 1) {
+                sb.append("x^").append(exponent);
+            }
+        } else {
+            sb.append("0");
+        }
+        return sb.toString();
+    }
+
+    public void setCoefficient(double v) {
+        this.coefficient = v;
     }
 }
