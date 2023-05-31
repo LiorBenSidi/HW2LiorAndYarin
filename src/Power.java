@@ -14,7 +14,7 @@ public class Power implements Function {
 
     @Override
     public Function derivative() {
-        return new Product(new Constant(n), new Power(f, n - 1));
+        return new Product(new Product(new Constant(n),f.derivative()), new Power(f, n - 1));
     }
 
     @Override

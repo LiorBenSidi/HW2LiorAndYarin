@@ -27,7 +27,7 @@ public class MultiProduct implements Function {
             }
             Function productOfOthers = new MultiProduct(otherFunctions);
 
-            derivatives[i] = new MultiProduct(productOfOthers, factors[i].derivative());
+            derivatives[i] = new MultiProduct(factors[i].derivative(),productOfOthers );
         }
         return new MultiSum(derivatives);
         /*
