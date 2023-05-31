@@ -1,4 +1,4 @@
-public class Sum implements Function {
+public class Sum extends Function {
     private final Function f;
     private final Function g;
 
@@ -18,6 +18,7 @@ public class Sum implements Function {
         return sum1;
     }
 
+    /*
     @Override
     public double bisectionMethod(double a, double b, double epsilon) {
         double left = a;
@@ -33,11 +34,14 @@ public class Sum implements Function {
         }
         return (left + right) / 2;
     }
+     */
 
+    /*
     @Override
     public double bisectionMethod(double a, double b) {
         return bisectionMethod(a, b, Math.pow(10, -5));
     }
+     */
 
     @Override
     public double newtonRaphsonMethod(double a, double epsilon) {
@@ -47,11 +51,14 @@ public class Sum implements Function {
         return a;
     }
 
+    /*
     @Override
     public double newtonRaphsonMethod(double a) {
         return newtonRaphsonMethod(a, Math.pow(10, -5));
     }
+     */
 
+    /*
     @Override
     public Polynomial taylorPolynomial(int n) {
         Polynomial fTaylor = f.taylorPolynomial(n);
@@ -71,6 +78,7 @@ public class Sum implements Function {
 
         return new Polynomial(sumTerms);
     }
+     */
 
     @Override
     public String toString() {

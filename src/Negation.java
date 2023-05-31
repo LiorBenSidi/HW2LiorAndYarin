@@ -1,4 +1,4 @@
-public class Negation implements Function {
+public class Negation extends Function {
     private final Function function;
 
     public Negation(Function function) {
@@ -15,26 +15,33 @@ public class Negation implements Function {
         return new Negation(function.derivative());
     }
 
+    /*
     @Override
     public double bisectionMethod(double a, double b, double epsilon) {
         return -function.bisectionMethod(a, b, epsilon);
     }
+     */
 
+    /*
     @Override
     public double bisectionMethod(double a, double b) {
         return -function.bisectionMethod(a, b);
     }
+     */
 
     @Override
     public double newtonRaphsonMethod(double a, double epsilon) {
         return -function.newtonRaphsonMethod(a, epsilon);
     }
 
+    /*
     @Override
     public double newtonRaphsonMethod(double a) {
         return -function.newtonRaphsonMethod(a);
     }
+     */
 
+    /*
     @Override
     public Polynomial taylorPolynomial(int n) {
         Polynomial result = function.taylorPolynomial(n);
@@ -47,7 +54,7 @@ public class Negation implements Function {
 
         return new Polynomial(polynomial);
     }
-
+     */
     @Override
     public String toString() {
         String[] temp = function.toString().split("");

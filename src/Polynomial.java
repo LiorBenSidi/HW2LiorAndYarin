@@ -1,4 +1,4 @@
-public class Polynomial implements Function {
+public class Polynomial extends Function {
     private final ItemInPolynomial[] polynomial;
 
     public Polynomial(double... args) {
@@ -25,7 +25,9 @@ public class Polynomial implements Function {
         double result = 0.0;
         for (ItemInPolynomial term : polynomial) {
             if (term != null) { // Check for null terms
-                result += term.getCoefficient() * Math.pow(x, term.getExponent());
+                double coefficient = term.getCoefficient();
+                int exponent = term.getExponent();
+                result += coefficient * Math.pow(x, exponent);
             }
         }
         return result;
@@ -45,6 +47,7 @@ public class Polynomial implements Function {
         return new Polynomial(derivativePolynomial);
     }
 
+    /*
     @Override
     public double bisectionMethod(double a, double b, double epsilon) {
         double left = a;
@@ -64,7 +67,7 @@ public class Polynomial implements Function {
         }
 
         return (left + right) / 2;
-        /*
+
         double left = a;
         double right = b;
         double mid;
@@ -77,13 +80,16 @@ public class Polynomial implements Function {
             }
         }
         return (left + right) / 2;
-         */
-    }
 
+    }
+     */
+
+    /*
     @Override
     public double bisectionMethod(double a, double b) {
         return bisectionMethod(a, b, Math.pow(10, -5));
     }
+     */
 
     @Override
     public double newtonRaphsonMethod(double a, double epsilon) {
@@ -93,11 +99,14 @@ public class Polynomial implements Function {
         return a;
     }
 
+    /*
     @Override
     public double newtonRaphsonMethod(double a) {
         return newtonRaphsonMethod(a, Math.pow(10, -5));
     }
+     */
 
+    /*
     @Override
     public Polynomial taylorPolynomial(int n) {
         ItemInPolynomial[] taylorItems = new ItemInPolynomial[n + 1];
@@ -107,6 +116,7 @@ public class Polynomial implements Function {
         }
         return new Polynomial(taylorItems);
     }
+     */
 
     @Override
     public String toString() {

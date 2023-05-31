@@ -1,4 +1,4 @@
-public class Difference implements Function {
+public class Difference extends Function {
     private final Function f;
     private final Function g;
 
@@ -17,15 +17,19 @@ public class Difference implements Function {
         return new Difference(f.derivative(), g.derivative());
     }
 
+    /*
     @Override
     public double bisectionMethod(double a, double b, double epsilon) {
         return (a + b) / 2;
     }
+     */
 
+    /*
     @Override
     public double bisectionMethod(double a, double b) {
         return bisectionMethod(a, b, Math.pow(10, -5));
     }
+     */
 
     @Override
     public double newtonRaphsonMethod(double a, double epsilon) {
@@ -35,15 +39,19 @@ public class Difference implements Function {
         return a;
     }
 
+    /*
     @Override
     public double newtonRaphsonMethod(double a) {
         return newtonRaphsonMethod(a, Math.pow(10, -5));
     }
+     */
 
+    /*
     @Override
     public Polynomial taylorPolynomial(int n) {
         return new Polynomial(new ItemInPolynomial[]{new ItemInPolynomial(0.0, 0)});
     }
+     */
 
     @Override
     public String toString() {

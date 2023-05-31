@@ -1,4 +1,4 @@
-public class Quotient implements Function {
+public class Quotient extends Function {
     private final Function numerator;
     private final Function denominator;
 
@@ -28,15 +28,19 @@ public class Quotient implements Function {
         return new Quotient(numeratorDerivative, denominatorTerm);
     }
 
+    /*
     @Override
     public double bisectionMethod(double a, double b, double epsilon) {
         return (a + b) / 2;
     }
+     */
 
+    /*
     @Override
     public double bisectionMethod(double a, double b) {
         return bisectionMethod(a, b, Math.pow(10, -5));
     }
+     */
 
     @Override
     public double newtonRaphsonMethod(double a, double epsilon) {
@@ -46,15 +50,19 @@ public class Quotient implements Function {
         return a;
     }
 
+    /*
     @Override
     public double newtonRaphsonMethod(double a) {
         return newtonRaphsonMethod(a, Math.pow(10, -5));
     }
+     */
 
+    /*
     @Override
     public Polynomial taylorPolynomial(int n) {
         return new Polynomial(new ItemInPolynomial[]{new ItemInPolynomial(0.0, 0)});
     }
+     */
 
     @Override
     public String toString() {

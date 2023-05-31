@@ -1,4 +1,4 @@
-public class Power implements Function {
+public class Power extends Function {
     private final Function f;
     private final int n;
 
@@ -14,18 +14,30 @@ public class Power implements Function {
 
     @Override
     public Function derivative() {
+        /*
         return new Product(new Product(new Constant(n),f.derivative()), new Power(f, n - 1));
+         */
+        if(n == 1) {
+            return f.derivative();
+        } else {
+            return new MultiProduct(new Constant(n), new Power(f, n - 1), f.derivative());
+        }
+
     }
 
+    /*
     @Override
     public double bisectionMethod(double a, double b, double epsilon) {
         return (a + b) / 2;
     }
+     */
 
+    /*
     @Override
     public double bisectionMethod(double a, double b) {
         return bisectionMethod(a, b, Math.pow(10, -5));
     }
+     */
 
     @Override
     public double newtonRaphsonMethod(double a, double epsilon) {
@@ -35,15 +47,19 @@ public class Power implements Function {
         return a;
     }
 
+    /*
     @Override
     public double newtonRaphsonMethod(double a) {
         return newtonRaphsonMethod(a, Math.pow(10, -5));
     }
+     */
 
+    /*
     @Override
     public Polynomial taylorPolynomial(int n) {
         return new Polynomial(new ItemInPolynomial[]{new ItemInPolynomial(0.0, 0)});
     }
+     */
 
     @Override
     public String toString() {

@@ -1,4 +1,4 @@
-public class MultiSum implements Function {
+public class MultiSum extends Function {
     private final Function[] functions;
 
     public MultiSum(Function... functions) {
@@ -23,15 +23,19 @@ public class MultiSum implements Function {
         return new MultiSum(derivatives);
     }
 
+    /*
     @Override
     public double bisectionMethod(double a, double b, double epsilon) {
         return (a + b) / 2;
     }
+     */
 
+    /*
     @Override
     public double bisectionMethod(double a, double b) {
         return bisectionMethod(a, b, Math.pow(10, -5));
     }
+     */
 
     @Override
     public double newtonRaphsonMethod(double a, double epsilon) {
@@ -41,15 +45,19 @@ public class MultiSum implements Function {
         return a;
     }
 
+    /*
     @Override
     public double newtonRaphsonMethod(double a) {
         return newtonRaphsonMethod(a, Math.pow(10, -5));
     }
+     */
 
+    /*
     @Override
     public Polynomial taylorPolynomial(int n) {
         return new Polynomial(new ItemInPolynomial[]{new ItemInPolynomial(0.0, 0)});
     }
+     */
 
     @Override
     public String toString() {

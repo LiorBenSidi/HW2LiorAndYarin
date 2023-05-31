@@ -1,0 +1,465 @@
+------------------------------ Tests for part A ------------------------------
+d1 with o1: true
+o1 with d1: true
+d1 with dt1: false
+dt1 with d1: false
+d1 with d2: false
+d2 with d1: false
+d1 with o2: false
+o2 with d1: false
+dt1 with d2: true
+d2 with dt1: true
+dt1 with o2: true
+o2 with dt1: true
+d2 with o2: true
+o2 with d2: true
+d1 with null: false
+o1 with null: false
+dt1 with null: false
+d1: 21/05/2023
+d1.toString(): 21/05/2023
+o1: 21/05/2023
+dt1: 21/05/2023 00:00
+d2: 21/05/2023 00:00
+o2: 21/05/2023 00:00
+dt2: 05/01/0000 00:00
+dt2: 05/01/0000 00:59
+-------------------- Tests for part B --------------------
+const1: (12345)
+const1 with toString: (12345)
+const1 value at 0.0: 12345.0
+const1 value at 1.0: 12345.0
+const1 value at -1.0: 12345.0
+const1 value at 1365.382: 12345.0
+const1 value at 1099.341: 12345.0
+const1 value at -1147.683: 12345.0
+const1 value at -1337.529: 12345.0
+const1 value at 993.294: 12345.0
+const1 value at 2420.234: 12345.0
+const1 value at -787.303: 12345.0
+const1 derivative: (0)
+const1 Taylor polynomial of order 0: (12345)
+const1 Taylor polynomial of order 1: (12345)
+const1 Taylor polynomial of order 2: (12345)
+const1 Taylor polynomial of order 3: (12345)
+const1 Taylor polynomial of order 4: (12345)
+const1 Taylor polynomial of order 5: (12345)
+const1 Taylor polynomial of order 6: (12345)
+const1 Taylor polynomial of order 7: (12345)
+const1 Taylor polynomial of order 8: (12345)
+const1 Taylor polynomial of order 9: (12345)
+const1 Taylor polynomial of order 10: (12345)
+
+const2: (12.391709)
+const2 with toString: (12.391709)
+const2 value at 0.0: 12.391709
+const2 value at 1.0: 12.391709
+const2 value at -1.0: 12.391709
+const2 value at -1345.512: 12.391709
+const2 value at -218.079: 12.391709
+const2 value at 1697.411: 12.391709
+const2 value at 2515.967: 12.391709
+const2 value at -381.054: 12.391709
+const2 value at 1499.437: 12.391709
+const2 value at -680.599: 12.391709
+const2 derivative: (0)
+const2 Taylor polynomial of order 0: (12.391709)
+const2 Taylor polynomial of order 1: (12.391709)
+const2 Taylor polynomial of order 2: (12.391709)
+const2 Taylor polynomial of order 3: (12.391709)
+const2 Taylor polynomial of order 4: (12.391709)
+const2 Taylor polynomial of order 5: (12.391709)
+const2 Taylor polynomial of order 6: (12.391709)
+const2 Taylor polynomial of order 7: (12.391709)
+const2 Taylor polynomial of order 8: (12.391709)
+const2 Taylor polynomial of order 9: (12.391709)
+const2 Taylor polynomial of order 10: (12.391709)
+
+prod1: (((12345) + (12.391709)) * (-1709))
+prod1 with toString: (((12345) + (12.391709)) * (-1709))
+prod1 value at 0.0: -2.1118782430680998E7
+prod1 value at 1.0: -2.1118782430680998E7
+prod1 value at -1.0: -2.1118782430680998E7
+prod1 value at -1935.729: -2.1118782430680998E7
+prod1 value at 566.099: -2.1118782430680998E7
+prod1 value at -1741.395: -2.1118782430680998E7
+prod1 value at 1955.795: -2.1118782430680998E7
+prod1 value at -1966.692: -2.1118782430680998E7
+prod1 value at 524.564: -2.1118782430680998E7
+prod1 value at 1507.682: -2.1118782430680998E7
+prod1 derivative: ((((0) + (0)) * (-1709)) + ((0) * ((12345) + (12.391709))))
+prod1 Taylor polynomial of order 0: (-2.1118782430680998E7)
+prod1 Taylor polynomial of order 1: (-2.1118782430680998E7)
+prod1 Taylor polynomial of order 2: (-2.1118782430680998E7)
+prod1 Taylor polynomial of order 3: (-2.1118782430680998E7)
+prod1 Taylor polynomial of order 4: (-2.1118782430680998E7)
+prod1 Taylor polynomial of order 5: (-2.1118782430680998E7)
+prod1 Taylor polynomial of order 6: (-2.1118782430680998E7)
+prod1 Taylor polynomial of order 7: (-2.1118782430680998E7)
+prod1 Taylor polynomial of order 8: (-2.1118782430680998E7)
+prod1 Taylor polynomial of order 9: (-2.1118782430680998E7)
+prod1 Taylor polynomial of order 10: (-2.1118782430680998E7)
+
+prod2: (((12345) + (12.391709)) * (-(-(-1709))))
+prod2 with toString: (((12345) + (12.391709)) * (-(-(-1709))))
+prod2 value at 0.0: -2.1118782430680998E7
+prod2 value at 1.0: -2.1118782430680998E7
+prod2 value at -1.0: -2.1118782430680998E7
+prod2 value at 426.242: -2.1118782430680998E7
+prod2 value at 480.149: -2.1118782430680998E7
+prod2 value at 1515.06: -2.1118782430680998E7
+prod2 value at -2811.491: -2.1118782430680998E7
+prod2 value at -852.48: -2.1118782430680998E7
+prod2 value at 1906.782: -2.1118782430680998E7
+prod2 value at -493.875: -2.1118782430680998E7
+prod2 derivative: ((((0) + (0)) * (-(-(-1709)))) + ((-(-(0))) * ((12345) + (12.391709))))
+prod2 Taylor polynomial of order 0: (-2.1118782430680998E7)
+prod2 Taylor polynomial of order 1: (-2.1118782430680998E7)
+prod2 Taylor polynomial of order 2: (-2.1118782430680998E7)
+prod2 Taylor polynomial of order 3: (-2.1118782430680998E7)
+prod2 Taylor polynomial of order 4: (-2.1118782430680998E7)
+prod2 Taylor polynomial of order 5: (-2.1118782430680998E7)
+prod2 Taylor polynomial of order 6: (-2.1118782430680998E7)
+prod2 Taylor polynomial of order 7: (-2.1118782430680998E7)
+prod2 Taylor polynomial of order 8: (-2.1118782430680998E7)
+prod2 Taylor polynomial of order 9: (-2.1118782430680998E7)
+prod2 Taylor polynomial of order 10: (-2.1118782430680998E7)
+
+diff1: ((12345) - (-1709))
+diff1 with toString: ((12345) - (-1709))
+diff1 value at 0.0: 14054.0
+diff1 value at 1.0: 14054.0
+diff1 value at -1.0: 14054.0
+diff1 value at 2844.214: 14054.0
+diff1 value at 1280.438: 14054.0
+diff1 value at -116.553: 14054.0
+diff1 value at -1250.061: 14054.0
+diff1 value at 2699.161: 14054.0
+diff1 value at 1922.951: 14054.0
+diff1 value at 819.867: 14054.0
+diff1 derivative: ((0) - (0))
+diff1 Taylor polynomial of order 0: (14054)
+diff1 Taylor polynomial of order 1: (14054)
+diff1 Taylor polynomial of order 2: (14054)
+diff1 Taylor polynomial of order 3: (14054)
+diff1 Taylor polynomial of order 4: (14054)
+diff1 Taylor polynomial of order 5: (14054)
+diff1 Taylor polynomial of order 6: (14054)
+diff1 Taylor polynomial of order 7: (14054)
+diff1 Taylor polynomial of order 8: (14054)
+diff1 Taylor polynomial of order 9: (14054)
+diff1 Taylor polynomial of order 10: (14054)
+
+quotient1: (((((12345) * (-1709)) - (12.391709)) + (1 + x^2)) / (((12345) + (12.391709)) * (-1709)))
+quotient1 with toString: (((((12345) * (-1709)) - (12.391709)) + (1 + x^2)) / (((12345) + (12.391709)) * (-1709)))
+quotient1 value at 0.0: 0.9989977623453685
+quotient1 value at 1.0: 0.9989977149941539
+quotient1 value at -1.0: 0.9989977149941539
+quotient1 value at -785.271: 0.9697986100994918
+quotient1 value at -838.471: 0.9657082666015397
+quotient1 value at -392.033: 0.9917203601753588
+quotient1 value at -256.097: 0.9958922010458819
+quotient1 value at -163.869: 0.9977262378505669
+quotient1 value at -185.865: 0.9973619768383967
+quotient1 value at 1963.935: 0.8163622009968337
+quotient1 derivative: ((((((((0) * (-1709)) + ((0) * (12345))) - (0)) + (2x)) * (((12345) + (12.391709)) * (-1709))) - (((((0) + (0)) * (-1709)) + ((0) * ((12345) + (12.391709)))) * ((((12345) * (-1709)) - (12.391709)) + (1 + x^2)))) / ((((12345) + (12.391709)) * (-1709))^2))
+quotient1 Taylor polynomial of order 0: (0.9989977623453685)
+quotient1 Taylor polynomial of order 1: (0.9989977623453685)
+quotient1 Taylor polynomial of order 2: (0.9989977623453685 - 4.735121464896658E-8x^2)
+quotient1 Taylor polynomial of order 3: (0.9989977623453685 - 4.735121464896658E-8x^2)
+quotient1 Taylor polynomial of order 4: (0.9989977623453685 - 4.735121464896658E-8x^2)
+
+multiSum1: ((21.03) + (3))
+multiSum1 with toString: ((21.03) + (3))
+multiSum1 value at 0.0: 24.03
+multiSum1 value at 1.0: 24.03
+multiSum1 value at -1.0: 24.03
+multiSum1 value at -2093.811: 24.03
+multiSum1 value at 2003.197: 24.03
+multiSum1 value at -238.162: 24.03
+multiSum1 value at -1316.568: 24.03
+multiSum1 value at -1824.215: 24.03
+multiSum1 value at -1924.359: 24.03
+multiSum1 value at 2194.121: 24.03
+multiSum1 derivative: ((0) + (0))
+multiSum1 Taylor polynomial of order 0: (24.03)
+multiSum1 Taylor polynomial of order 1: (24.03)
+multiSum1 Taylor polynomial of order 2: (24.03)
+multiSum1 Taylor polynomial of order 3: (24.03)
+multiSum1 Taylor polynomial of order 4: (24.03)
+multiSum1 Taylor polynomial of order 5: (24.03)
+multiSum1 Taylor polynomial of order 6: (24.03)
+multiSum1 Taylor polynomial of order 7: (24.03)
+multiSum1 Taylor polynomial of order 8: (24.03)
+multiSum1 Taylor polynomial of order 9: (24.03)
+multiSum1 Taylor polynomial of order 10: (24.03)
+
+poly1: (x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)
+poly1 with toString: (x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)
+poly1 value at 0.0: 0.0
+poly1 value at 1.0: 7.641500000000001
+poly1 value at -1.0: -1.6415000000000002
+poly1 value at -80.456: -1.0507782704295116E10
+poly1 value at -474.17: -7.520121565681906E13
+poly1 value at 797.219: 1.012446938443333E15
+poly1 value at 1199.152: 7.793614097629855E15
+poly1 value at -1108.029: -5.243765538572556E15
+poly1 value at 429.722: 4.610192558828723E13
+poly1 value at -773.926: -8.715196703590052E14
+poly1 derivative: (2x + 4.5x^2 + 8x^3 + 15.707500000000001x^4)
+poly1 Taylor polynomial of order 0: (0)
+poly1 Taylor polynomial of order 1: (0)
+poly1 Taylor polynomial of order 2: (x^2)
+poly1 Taylor polynomial of order 3: (x^2 + 1.5x^3)
+poly1 Taylor polynomial of order 4: (x^2 + 1.5x^3 + 2x^4)
+poly1 Taylor polynomial of order 5: (x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)
+poly1 Taylor polynomial of order 6: (x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)
+poly1 Taylor polynomial of order 7: (x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)
+poly1 Taylor polynomial of order 8: (x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)
+poly1 Taylor polynomial of order 9: (x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)
+poly1 Taylor polynomial of order 10: (x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)
+
+poly2: (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18)
+poly2 with toString: (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18)
+poly2 value at 0.0: 1.0
+poly2 value at 1.0: 14.67
+poly2 value at -1.0: 7.33
+poly2 value at 2230.888: 5.619802694052116E60
+poly2 value at 1834.386: 1.6594124512139756E59
+poly2 value at 697.282: 4.5548432013155545E51
+poly2 value at -753.844: 1.854333910876793E52
+poly2 value at 1183.492: 6.224394831198382E55
+poly2 value at 2451.687: 3.072498579791828E61
+poly2 value at -1823.118: 1.4852079869224295E59
+poly2 derivative: (4x + 4.5x^2 + 20x^3 + 10.85x^4 + 54x^17)
+poly2 Taylor polynomial of order 0: (1)
+poly2 Taylor polynomial of order 1: (1)
+poly2 Taylor polynomial of order 2: (1 + 2x^2)
+poly2 Taylor polynomial of order 3: (1 + 2x^2 + 1.5x^3)
+poly2 Taylor polynomial of order 4: (1 + 2x^2 + 1.5x^3 + 5x^4)
+poly2 Taylor polynomial of order 5: (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5)
+poly2 Taylor polynomial of order 6: (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5)
+poly2 Taylor polynomial of order 7: (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5)
+poly2 Taylor polynomial of order 8: (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5)
+poly2 Taylor polynomial of order 9: (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5)
+poly2 Taylor polynomial of order 10: (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5)
+poly2 Taylor polynomial of order 11: (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5)
+poly2 Taylor polynomial of order 12: (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5)
+poly2 Taylor polynomial of order 13: (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5)
+poly2 Taylor polynomial of order 14: (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5)
+poly2 Taylor polynomial of order 15: (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5)
+poly2 Taylor polynomial of order 16: (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5)
+poly2 Taylor polynomial of order 17: (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5)
+poly2 Taylor polynomial of order 18: (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18)
+poly2 Taylor polynomial of order 19: (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18)
+poly2 Taylor polynomial of order 20: (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18)
+
+multiSum2: ((21.03) + (x^2 + 1.5x^3 + 2x^4 + 3.1415x^5) + (5) + (3.1415))
+multiSum2 with toString: ((21.03) + (x^2 + 1.5x^3 + 2x^4 + 3.1415x^5) + (5) + (3.1415))
+multiSum2 value at 0.0: 29.1715
+multiSum2 value at 1.0: 36.813
+multiSum2 value at -1.0: 27.53
+multiSum2 value at 1854.749: 6.897820638679824E16
+multiSum2 value at 767.6: 8.378616175580929E14
+multiSum2 value at -219.604: -1.5998590926118274E12
+multiSum2 value at -1166.525: -6.782196775898867E15
+multiSum2 value at 239.457: 2.479884665151554E12
+multiSum2 value at 810.666: 1.1007485015733335E15
+multiSum2 value at -2242.453: -1.78086310757197984E17
+multiSum2 derivative: ((0) + (2x + 4.5x^2 + 8x^3 + 15.707500000000001x^4) + (0) + (0))
+multiSum2 Taylor polynomial of order 0: (29.1715)
+multiSum2 Taylor polynomial of order 1: (29.1715)
+multiSum2 Taylor polynomial of order 2: (29.1715 + x^2)
+multiSum2 Taylor polynomial of order 3: (29.1715 + x^2 + 1.5x^3)
+multiSum2 Taylor polynomial of order 4: (29.1715 + x^2 + 1.5x^3 + 2x^4)
+multiSum2 Taylor polynomial of order 5: (29.1715 + x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)
+multiSum2 Taylor polynomial of order 6: (29.1715 + x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)
+multiSum2 Taylor polynomial of order 7: (29.1715 + x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)
+multiSum2 Taylor polynomial of order 8: (29.1715 + x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)
+multiSum2 Taylor polynomial of order 9: (29.1715 + x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)
+multiSum2 Taylor polynomial of order 10: (29.1715 + x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)
+
+multiProd1: ((10) * (7 + 3.5x + 2x^2 + x^3))
+multiProd1 with toString: ((10) * (7 + 3.5x + 2x^2 + x^3))
+multiProd1 value at 0.0: 70.0
+multiProd1 value at 1.0: 135.0
+multiProd1 value at -1.0: 45.0
+multiProd1 value at -16.039: -36606.62525319001
+multiProd1 value at -2836.115: -2.279635079045587E11
+multiProd1 value at -2781.093: -2.149484415855461E11
+multiProd1 value at -96.937: -8924345.69290953
+multiProd1 value at 930.32: 8.069218434535681E9
+multiProd1 value at -625.402: -2.4383194840625687E9
+multiProd1 value at 2641.035: 1.8435352475575665E11
+multiProd1 derivative: (((0) * (7 + 3.5x + 2x^2 + x^3)) + ((3.5 + 4x + 3x^2) * (10)))
+multiProd1 Taylor polynomial of order 0: (70)
+multiProd1 Taylor polynomial of order 1: (70 + 35x)
+multiProd1 Taylor polynomial of order 2: (70 + 35x + 20x^2)
+multiProd1 Taylor polynomial of order 3: (70 + 35x + 20x^2 + 10x^3)
+multiProd1 Taylor polynomial of order 4: (70 + 35x + 20x^2 + 10x^3)
+multiProd1 Taylor polynomial of order 5: (70 + 35x + 20x^2 + 10x^3)
+multiProd1 Taylor polynomial of order 6: (70 + 35x + 20x^2 + 10x^3)
+multiProd1 Taylor polynomial of order 7: (70 + 35x + 20x^2 + 10x^3)
+multiProd1 Taylor polynomial of order 8: (70 + 35x + 20x^2 + 10x^3)
+multiProd1 Taylor polynomial of order 9: (70 + 35x + 20x^2 + 10x^3)
+multiProd1 Taylor polynomial of order 10: (70 + 35x + 20x^2 + 10x^3)
+
+multiProd2: ((3) * (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18) * (-((21) + (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18))))
+multiProd2 with toString: ((3) * (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18) * (-((21) + (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18))))
+multiProd2 value at 0.0: -66.0
+multiProd2 value at 1.0: -1569.8367
+multiProd2 value at -1.0: -622.9767
+multiProd2 value at -692.335: -4.816705646026845E103
+multiProd2 value at 877.392: -2.4340858521040708E107
+multiProd2 value at 1622.794: -1.0019497083535796E117
+multiProd2 value at 2364.257: -7.662533249696465E122
+multiProd2 value at 593.022: -1.8277329880145275E101
+multiProd2 value at 2856.207: -6.915000486244614E125
+multiProd2 value at -2537.489: -9.770433239074104E123
+multiProd2 derivative: (((0) * (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18) * (-((21) + (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18)))) + ((4x + 4.5x^2 + 20x^3 + 10.85x^4 + 54x^17) * (3) * (-((21) + (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18)))) + ((-((0) + (4x + 4.5x^2 + 20x^3 + 10.85x^4 + 54x^17))) * (3) * (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18)))
+multiProd2 Taylor polynomial of order 0: (-66)
+multiProd2 Taylor polynomial of order 1: (-66)
+multiProd2 Taylor polynomial of order 2: (-66 - 138x^2)
+multiProd2 Taylor polynomial of order 3: (-66 - 138x^2 - 103.5x^3)
+multiProd2 Taylor polynomial of order 4: (-66 - 138x^2 - 103.5x^3 - 357x^4)
+multiProd2 Taylor polynomial of order 5: (-66 - 138x^2 - 103.5x^3 - 357x^4 - 167.73x^5)
+multiProd2 Taylor polynomial of order 6: (-66 - 138x^2 - 103.5x^3 - 357x^4 - 167.73x^5 - 66.75x^6)
+multiProd2 Taylor polynomial of order 7: (-66 - 138x^2 - 103.5x^3 - 357x^4 - 167.73x^5 - 66.75x^6 - 71.03999999999999x^7)
+multiProd2 Taylor polynomial of order 8: (-66 - 138x^2 - 103.5x^3 - 357x^4 - 167.73x^5 - 66.75x^6 - 71.03999999999999x^7 - 94.53x^8)
+multiProd2 Taylor polynomial of order 9: (-66 - 138x^2 - 103.5x^3 - 357x^4 - 167.73x^5 - 66.75x^6 - 71.03999999999999x^7 - 94.53x^8 - 65.09999999999998x^9)
+multiProd2 Taylor polynomial of order 10: (-66 - 138x^2 - 103.5x^3 - 357x^4 - 167.73x^5 - 66.75x^6 - 71.03999999999999x^7 - 94.53x^8 - 65.09999999999998x^9 - 14.126699999999998x^10)
+
+pow1: ((x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)^3)
+pow1 with toString: ((x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)^3)
+pow1 value at 0.0: 0.0
+pow1 value at 1.0: 446.2064587733751
+pow1 value at -1.0: -4.423058273375002
+pow1 value at 1650.724: 5.715191582737817E49
+pow1 value at -1327.066: -2.1586100546194793E48
+pow1 value at 2395.232: 1.5204471563192631E52
+pow1 value at -756.983: -4.749063325332954E44
+pow1 value at -412.143: -5.189429907632007E40
+pow1 value at -1006.054: -3.3877117714823717E46
+pow1 value at -1109.115: -1.4632290112553765E47
+pow1 derivative: ((3) * ((x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)^2) * (2x + 4.5x^2 + 8x^3 + 15.707500000000001x^4))
+pow1 Taylor polynomial of order 0: (0)
+pow1 Taylor polynomial of order 1: (0)
+pow1 Taylor polynomial of order 2: (0)
+pow1 Taylor polynomial of order 3: (0)
+pow1 Taylor polynomial of order 4: (0)
+pow1 Taylor polynomial of order 5: (0)
+
+pow2: (((x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)^3)^3)
+pow2 with toString: (((x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)^3)^3)
+pow2 value at 0.0: 0.0
+pow2 value at 1.0: 8.88397969014456E7
+pow2 value at -1.0: -86.53025500575214
+pow2 value at -343.584: -3.8768777683732356E118
+pow2 value at -2421.295: -5.6931520186558444E156
+pow2 value at 1470.92: 1.0409579593932833E147
+pow2 value at -1974.842: -5.914659918535967E152
+pow2 value at 1832.344: 2.046008369958827E151
+pow2 value at -2161.262: -3.427016823607227E154
+pow2 value at -2442.319: -8.400833025754811E156
+pow2 derivative: ((3) * (((x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)^3)^2) * ((3) * ((x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)^2) * (2x + 4.5x^2 + 8x^3 + 15.707500000000001x^4)))
+pow2 Taylor polynomial of order 0: (0)
+pow2 Taylor polynomial of order 1: (0)
+pow2 Taylor polynomial of order 2: (0)
+pow2 Taylor polynomial of order 3: (0)
+pow2 Taylor polynomial of order 4: (0)
+
+pow3: ((-(x^2 + 1.5x^3 + 2x^4 + 3.1415x^5))^2)
+pow3 with toString: ((-(x^2 + 1.5x^3 + 2x^4 + 3.1415x^5))^2)
+pow3 value at 0.0: 0.0
+pow3 value at 1.0: 58.392522250000006
+pow3 value at -1.0: 2.694522250000001
+pow3 value at -2837.821: 3.3414062434738916E35
+pow3 value at 290.008: 4.1714161479588255E25
+pow3 value at -1306.81: 1.4321074656662401E32
+pow3 value at 2804.972: 2.976847616773284E35
+pow3 value at 2427.006: 7.001813067106275E34
+pow3 value at -936.347: 5.105662054317473E30
+pow3 value at -2915.665: 4.3798650995519475E35
+pow3 derivative: ((2) * ((-(x^2 + 1.5x^3 + 2x^4 + 3.1415x^5))^1) * (-(2x + 4.5x^2 + 8x^3 + 15.707500000000001x^4)))
+pow3 Taylor polynomial of order 0: (0)
+pow3 Taylor polynomial of order 1: (0)
+pow3 Taylor polynomial of order 2: (0)
+pow3 Taylor polynomial of order 3: (0)
+pow3 Taylor polynomial of order 4: (x^4)
+
+quotient2: ((1 + 2.5x^2 + 3x^3) / (1 + 2x + 3x^2 + 4x^3))
+quotient2 with toString: ((1 + 2.5x^2 + 3x^3) / (1 + 2x + 3x^2 + 4x^3))
+quotient2 value at 0.0: 1.0
+quotient2 value at 1.0: 0.65
+quotient2 value at -1.0: -0.25
+quotient2 value at 1857.565: 0.7500335239891506
+quotient2 value at 128.966: 0.7504594207851202
+quotient2 value at 2010.933: 0.7500309758183312
+quotient2 value at 500.77: 0.7501231282489115
+quotient2 value at 1129.476: 0.7500550049390694
+quotient2 value at 338.293: 0.750181073703253
+quotient2 value at -2305.499: 0.7499728115033544
+quotient2 derivative: ((((5x + 9x^2) * (1 + 2x + 3x^2 + 4x^3)) - ((2 + 6x + 12x^2) * (1 + 2.5x^2 + 3x^3))) / ((1 + 2x + 3x^2 + 4x^3)^2))
+quotient2 Taylor polynomial of order 0: (1)
+quotient2 Taylor polynomial of order 1: (1 - 2x)
+quotient2 Taylor polynomial of order 2: (1 - 2x + 3.5x^2)
+quotient2 Taylor polynomial of order 3: (1 - 2x + 3.5x^2 - 2x^3)
+quotient2 Taylor polynomial of order 4: (1 - 2x + 3.5x^2 - 2x^3 + 1.5x^4)
+quotient2 Taylor polynomial of order 5: (1 - 2x + 3.5x^2 - 2x^3 + 1.5x^4 - 11x^5)
+quotient2 Taylor polynomial of order 6: (1 - 2x + 3.5x^2 - 2x^3 + 1.5x^4 - 11x^5 + 25.5x^6)
+quotient2 Taylor polynomial of order 7: (1 - 2x + 3.5x^2 - 2x^3 + 1.5x^4 - 11x^5 + 25.5x^6 - 24x^7)
+quotient2 Taylor polynomial of order 8: (1 - 2x + 3.5x^2 - 2x^3 + 1.5x^4 - 11x^5 + 25.5x^6 - 24x^7 + 15.5x^8)
+
+massiveFunc: (((((((12345) * (-1709)) - (12.391709)) + (1 + x^2)) / (((12345) + (12.391709)) * (-1709))) + (x^2 + 1.5x^3 + 2x^4 + 3.1415x^5) + (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18)) + (-((((((12345) * (-1709)) - (12.391709)) + (1 + x^2)) / (((12345) + (12.391709)) * (-1709))) + (((((x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)^3) - (-1709)) + (12.391709)) / (-((2.17) / ((((((12345) * (-1709)) - (12.391709)) + (1 + x^2)) / (((12345) + (12.391709)) * (-1709))) - (-(1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18)))))))))
+massiveFunc with toString: (((((((12345) * (-1709)) - (12.391709)) + (1 + x^2)) / (((12345) + (12.391709)) * (-1709))) + (x^2 + 1.5x^3 + 2x^4 + 3.1415x^5) + (1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18)) + (-((((((12345) * (-1709)) - (12.391709)) + (1 + x^2)) / (((12345) + (12.391709)) * (-1709))) + (((((x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)^3) - (-1709)) + (12.391709)) / (-((2.17) / ((((((12345) * (-1709)) - (12.391709)) + (1 + x^2)) / (((12345) + (12.391709)) * (-1709))) - (-(1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18)))))))))
+massiveFunc value at 0.0: 1586.7410941985574
+massiveFunc value at 1.0: 15673.966217910845
+massiveFunc value at -1.0: 6595.839637612284
+massiveFunc value at 531.052: 3.657282625754548E91
+massiveFunc value at 2370.854: 1.0099069955279355E113
+massiveFunc value at 758.851: 4.767945092715349E96
+massiveFunc value at -704.514: -4.0855806834055054E95
+massiveFunc value at 2421.751: 2.0355809419249816E113
+massiveFunc value at 2002.198: 3.821367857083202E110
+massiveFunc value at -1438.838: -7.012761566954795E105
+massiveFunc derivative: ((((((((((0) * (-1709)) + ((0) * (12345))) - (0)) + (2x)) * (((12345) + (12.391709)) * (-1709))) - (((((0) + (0)) * (-1709)) + ((0) * ((12345) + (12.391709)))) * ((((12345) * (-1709)) - (12.391709)) + (1 + x^2)))) / ((((12345) + (12.391709)) * (-1709))^2)) + (2x + 4.5x^2 + 8x^3 + 15.707500000000001x^4) + (4x + 4.5x^2 + 20x^3 + 10.85x^4 + 54x^17)) + (-(((((((((0) * (-1709)) + ((0) * (12345))) - (0)) + (2x)) * (((12345) + (12.391709)) * (-1709))) - (((((0) + (0)) * (-1709)) + ((0) * ((12345) + (12.391709)))) * ((((12345) * (-1709)) - (12.391709)) + (1 + x^2)))) / ((((12345) + (12.391709)) * (-1709))^2)) + (((((((3) * ((x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)^2) * (2x + 4.5x^2 + 8x^3 + 15.707500000000001x^4)) - (0)) + (0)) * (-((2.17) / ((((((12345) * (-1709)) - (12.391709)) + (1 + x^2)) / (((12345) + (12.391709)) * (-1709))) - (-(1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18)))))) - ((-((((0) * ((((((12345) * (-1709)) - (12.391709)) + (1 + x^2)) / (((12345) + (12.391709)) * (-1709))) - (-(1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18)))) - ((((((((((0) * (-1709)) + ((0) * (12345))) - (0)) + (2x)) * (((12345) + (12.391709)) * (-1709))) - (((((0) + (0)) * (-1709)) + ((0) * ((12345) + (12.391709)))) * ((((12345) * (-1709)) - (12.391709)) + (1 + x^2)))) / ((((12345) + (12.391709)) * (-1709))^2)) - (-(4x + 4.5x^2 + 20x^3 + 10.85x^4 + 54x^17))) * (2.17))) / (((((((12345) * (-1709)) - (12.391709)) + (1 + x^2)) / (((12345) + (12.391709)) * (-1709))) - (-(1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18)))^2))) * ((((x^2 + 1.5x^3 + 2x^4 + 3.1415x^5)^3) - (-1709)) + (12.391709)))) / ((-((2.17) / ((((((12345) * (-1709)) - (12.391709)) + (1 + x^2)) / (((12345) + (12.391709)) * (-1709))) - (-(1 + 2x^2 + 1.5x^3 + 5x^4 + 2.17x^5 + 3x^18)))))^2)))))
+massiveFunc Taylor polynomial of order 0: (1586.7410941985574)
+massiveFunc Taylor polynomial of order 1: (1586.7410941985574)
+massiveFunc Taylor polynomial of order 2: (1586.7410941985574 + 1589.536099764982x^2)
+massiveFunc Taylor polynomial of order 3: (1586.7410941985574 + 1589.536099764982x^2 + 1192.9021029953917x^3)
+massiveFunc Taylor polynomial of order 4: (1586.7410941985574 + 1589.536099764982x^2 + 1192.9021029953917x^3 + 3973.3403433179706x^4)
+massiveFunc Taylor polynomial of order 5: (1586.7410941985574 + 1589.536099764982x^2 + 1192.9021029953917x^3 + 3973.3403433179706x^4 + 1726.7032089999996x^5)
+
+poly3: (-4 + x^2)
+poly3 root in [0.0, 5.0] and epsilon=1.0E-5: 2.000002861022949
+poly3 root near 2.5 and epsilon=1.0E-5: 2.0000000929222947
+poly3 root in [0.0, 5.0] and default epsilon: 2.000002861022949
+poly3 root near 2.5 and default epsilon: 2.0000000929222947
+poly3 root in [1.0, 9.5] and epsilon=1.0E-10: 1.999999999983629
+poly3 root near 5.25 and epsilon=1.0E-10: 2.0
+poly3 root in [1.0, 900000.235] and epsilon=1.0E-10: 1.9999999999759228
+poly3 root near 450000.6175 and epsilon=1.0E-10: 2.0000000000000004
+poly3 root in [-10.0, 0.0] and epsilon=1.0E-6: -2.0000001788139343
+poly3 root near -5.0 and epsilon=1.0E-6: -2.000000000006711
+
+poly4: (4 - x^2)
+poly4 root in [0.0, 5.0] and epsilon=1.0E-5: 2.000002861022949
+poly4 root near 2.5 and epsilon=1.0E-5: 2.0000000929222947
+poly4 root in [0.0, 5.0] and default epsilon: 2.000002861022949
+poly4 root near 2.5 and default epsilon: 2.0000000929222947
+poly4 root in [1.0, 9.0] and epsilon=1.0E-10: 1.9999999999708962
+poly4 root near 5.0 and epsilon=1.0E-10: 2.000000000006711
+poly4 root in [-10.0, 0.0] and epsilon=1.0E-6: -2.0000001788139343
+poly4 root near -5.0 and epsilon=1.0E-6: -2.000000000006711
+
+quotient3: ((-4 + x^2) / (x^2 + x^4))
+quotient3 root in [1.0, 4.0] and epsilon=1.0E-5: 1.9999990463256836
+quotient3 root near 2.5 and epsilon=1.0E-5: 1.9999995363307252
+quotient3 root in [1.0, 4.0] and default epsilon: 1.9999990463256836
+quotient3 root near 2.5 and default epsilon: 1.9999995363307252
+quotient3 root in [1.0, 3.0] and epsilon=1.0E-10: 1.9999999999708962
+quotient3 root near 2.0 and epsilon=1.0E-10: 2.0
+quotient3 root in [-3.0, -1.0] and epsilon=1.0E-10: -2.000000000029104
+quotient3 root near -2.0 and epsilon=1.0E-10: -2.0
+quotient3 root in [-4.0, -1.0] and epsilon=1.0E-6: -2.0000001192092896
+quotient3 root near -2.5 and epsilon=1.0E-6: -1.9999995363307252

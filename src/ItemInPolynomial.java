@@ -1,24 +1,16 @@
 public class ItemInPolynomial {
-
-    private int coefficientInt;
     private double coefficient;
     private final int exponent;
 
     public ItemInPolynomial(double coefficient, int exponent) {
         this.coefficient = coefficient;
-        this.exponent = exponent;
+        this.exponent = Math.abs(exponent);
     }
-    public ItemInPolynomial(int coefficientInt, int exponent) {
-        this.coefficientInt = coefficientInt;
-        this.exponent = exponent;
-    }
+
     public double getCoefficient() {
         return coefficient;
     }
-    //TODO: Add condition to each get of coefficient/coefficientInt
-    public int getCoefficientInt() {
-        return coefficientInt;
-    }
+
     public int getExponent() {
         return exponent;
     }
@@ -39,9 +31,5 @@ public class ItemInPolynomial {
             sb.append("0");
         }
         return sb.toString();
-    }
-
-    public void setCoefficient(double v) {
-        this.coefficient = v;
     }
 }
