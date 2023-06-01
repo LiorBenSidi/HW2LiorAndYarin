@@ -29,7 +29,7 @@ public class MultiProduct extends Function {
         for (int i = 0; i < factors.length; i++) {
             Function[] otherFunctions = new Function[factors.length - 1];
             int index = 0;
-            for (int j = 0; j < factors.length; j++) {
+            for(int j = 0; j < factors.length; j++) {
                 if (j != i) {
                     otherFunctions[index++] = factors[j];
                 }
