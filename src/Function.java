@@ -41,7 +41,15 @@ abstract class Function {
                 for (int j = 1; j <= i; j++) {
                     count *= j;
                 }
-                taylorItems[i] = new ItemInPolynomial(derivative / count, i);
+                double dc = derivative / count;
+                /*
+                String dcStr = String.valueOf(dc);
+                String[] dcSplit = dcStr.split("");
+                if(dcSplit[1].equals("-")) {
+                    dc = -(derivative / count);
+                }
+                 */
+                taylorItems[i] = new ItemInPolynomial(dc, i);
             }
         }
 
