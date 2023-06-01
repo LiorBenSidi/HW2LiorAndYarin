@@ -122,14 +122,61 @@ public class Polynomial extends Function {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         boolean isFirstTerm = true;
+
         for (ItemInPolynomial term : polynomial) {
             if (term == null) {
                 continue;
             }
 
-            if(isDoubleInt(term.getCoefficient())) {
-                int coefficient = (int) term.getCoefficient();
-                int exponent = term.getExponent();
+            double coefficient = term.getCoefficient();
+            int exponent = term.getExponent();
+
+            if (coefficient == 0.0) {
+                continue;
+            }
+
+            if (!isFirstTerm && coefficient > 0.0) {
+                builder.append(" + ");
+            }
+
+            if (coefficient < 0.0 && exponent != 0) {
+                builder.append(" - ");
+                coefficient = Math.abs(coefficient);
+            }
+
+            if (exponent == 0) {
+                builder.append(formatCoefficient(coefficient));
+            } else {
+                if (coefficient != 1.0) {
+                    builder.append(formatCoefficient(coefficient));
+                }
+
+                builder.append("x");
+
+                if (exponent != 1) {
+                    builder.append("^").append(exponent);
+                }
+            }
+
+            isFirstTerm = false;
+        }
+
+        if (builder.length() == 0) {
+            builder.append("0");
+        }
+
+        return "(" + builder.toString() + ")";
+        /*
+        StringBuilder builder = new StringBuilder();
+        boolean isFirstTerm = true;
+        for (int term = 0; term < polynomial.length; term++) {
+            if (polynomial[term] == null) {
+                continue;
+            }
+
+            if(isDoubleInt(polynomial[term].getCoefficient())) {
+                int coefficient = (int) polynomial[term].getCoefficient();
+                int exponent = polynomial[term].getExponent();
 
                 if (coefficient == 0) {
                     continue;
@@ -144,8 +191,12 @@ public class Polynomial extends Function {
                 } else {
                     if (coefficient != 1 && coefficient != -1) {
                         builder.append(coefficient);
-                    } else if (coefficient == -1) {
-                        builder.append(" - ");
+                    } else if (coefficient < 0) {
+                        if(coefficient == -1) {
+                            builder.append(" - ");
+                        } else {
+                            builder.append(" - ").append(Math.abs(coefficient));
+                        }
                     }
 
                     builder.append("x");
@@ -160,8 +211,8 @@ public class Polynomial extends Function {
                     builder.append("0");
                 }
             } else {
-                double coefficient = term.getCoefficient();
-                int exponent = term.getExponent();
+                double coefficient = polynomial[term].getCoefficient();
+                int exponent = polynomial[term].getExponent();
 
                 if (coefficient == 0.0) {
                     continue;
@@ -176,10 +227,13 @@ public class Polynomial extends Function {
                 } else {
                     if (coefficient != 1.0 && coefficient != -1.0) {
                         builder.append(coefficient);
-                    } else if (coefficient == -1.0) {
-                        builder.append(" - ");
+                    } if(coefficient < 0.0) {
+                        if (coefficient == -1.0) {
+                            builder.append(" - ");
+                        } else {
+                            builder.append(" - ").append(Math.abs(coefficient));
+                        }
                     }
-
                     builder.append("x");
 
                     if (exponent != 1) {
@@ -195,6 +249,17 @@ public class Polynomial extends Function {
 
         }
         return "(" + builder.toString() + ")";
+         */
+    }
+    private String formatCoefficient(double coefficient) {
+        if (isWholeNumber(coefficient)) {
+            return String.valueOf((int) coefficient);
+        } else {
+            return String.valueOf(coefficient);
+        }
+    }
+    private boolean isWholeNumber(double number) {
+        return number == Math.floor(number);
     }
 
     private double withdrawal(double x) {

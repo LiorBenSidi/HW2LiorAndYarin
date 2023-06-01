@@ -1,5 +1,5 @@
 public class ItemInPolynomial {
-    private double coefficient;
+    private final double coefficient;
     private final int exponent;
 
     public ItemInPolynomial(double coefficient, int exponent) {
@@ -15,6 +15,7 @@ public class ItemInPolynomial {
         return exponent;
     }
 
+    /*
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -32,4 +33,5 @@ public class ItemInPolynomial {
         }
         return sb.toString();
     }
+     */
 }

@@ -36,7 +36,7 @@ public class MultiProduct extends Function {
             }
             Function productOfOthers = new MultiProduct(otherFunctions);
 
-            derivatives[i] = new MultiProduct(factors[i].derivative(),productOfOthers );
+            derivatives[i] = new MultiProduct(factors[i].derivative(),otherFunctions);
         }
         return new MultiSum(derivatives);
         /*

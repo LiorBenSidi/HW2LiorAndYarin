@@ -29,10 +29,18 @@ abstract class Function {
         return newtonRaphsonMethod(a, Math.pow(10, -5));
     }
     public Function taylorPolynomial(int n) {
-        ItemInPolynomial[] taylorItems = new ItemInPolynomial[n + 1];
-        taylorItems[0] = new ItemInPolynomial(valueAt(0), 0);
-
         Function function = this;
+        ItemInPolynomial[] taylorItems = new ItemInPolynomial[n + 1];
+        if(function instanceof Polynomial) {
+            for(int i = 0; (i < ((Polynomial) function).getPolynomial().length) && (i < n + 1); i++) {
+                if(((Polynomial) function).getPolynomial()[i] != null) {
+                    taylorItems[i] = new ItemInPolynomial(((Polynomial) function).getPolynomial()[i].getCoefficient(),i);
+
+                }
+            }
+            return new Polynomial(taylorItems);
+        }
+        taylorItems[0] = new ItemInPolynomial(valueAt(0), 0);
         if (taylorItems.length > 1) {
             for (int i = 1; i < n + 1; i++) {
                 function =  function.derivative();
@@ -42,13 +50,6 @@ abstract class Function {
                     count *= j;
                 }
                 double dc = derivative / count;
-                /*
-                String dcStr = String.valueOf(dc);
-                String[] dcSplit = dcStr.split("");
-                if(dcSplit[1].equals("-")) {
-                    dc = -(derivative / count);
-                }
-                 */
                 taylorItems[i] = new ItemInPolynomial(dc, i);
             }
         }
