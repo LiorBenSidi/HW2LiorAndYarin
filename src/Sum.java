@@ -1,5 +1,5 @@
 /**
- * Represents a function that computes the sum of two functions.
+ * A class that represents a function that computes the sum of two functions.
  */
 public class Sum extends Function {
     private final Function f, g;
@@ -8,8 +8,8 @@ public class Sum extends Function {
     /**
      * Constructs a Sum object with the given functions to be summed.
      *
-     * @param f the first function
-     * @param g the second function
+     * @param f The first function.
+     * @param g The second function.
      */
     public Sum(Function f, Function g) {
         this.f = f;
@@ -28,9 +28,10 @@ public class Sum extends Function {
     }
 
     /**
-     * Computes the derivative of the sum function by taking the derivatives of the individual functions.
+     * Computes the derivative of the sum function.
+     * We do it by taking the derivatives of the individual functions.
      *
-     * @return the derivative of the sum function as a Function object
+     * @return Returns the derivative of the sum function as a Function object.
      */
     @Override
     public Function derivative() {
@@ -40,7 +41,7 @@ public class Sum extends Function {
     /**
      * Returns the string representation of the sum function.
      *
-     * @return the string representation of the sum function
+     * @return Returns the string representation of the sum function.
      */
     @Override
     public String toString() {

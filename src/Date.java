@@ -31,10 +31,10 @@ public class Date {
     }
 
     /**
-     * Sets the month component of the date to the specified value,
-     * if it is a valid month value (between 1 and 12 inclusive).
+     * Sets the month attribute of the date to the specified value.
+     * If it is a valid month value (between 1 and 12).
      *
-     * @param month the new month value
+     * @param month The given month value
      */
     public void setMonth(int month) {
         if(!(month<=0 || month > 12)){
@@ -62,12 +62,12 @@ public class Date {
     }
 
     /**
-     * Generates a hash code for the current date object that represents it.
-     * The hash code is calculated using the day, month, and year fields.
+     * Generates a hash code for the current date object, that represents it.
+     * The hash code is calculated using the day, month, and year attributes.
      * We use multiplication and addition operations to combine the hash codes,
      * for producing a distribution of hash values.
      *
-     * @return the hash code value
+     * @return The hash code value of the current date object.
      */
     @Override
     public int hashCode() {

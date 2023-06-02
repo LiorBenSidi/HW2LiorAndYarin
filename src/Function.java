@@ -30,7 +30,7 @@ abstract class Function {
      *
      * @param a The left endpoint.
      * @param b The right endpoint.
-     * @param epsilon the desired accuracy of the result.
+     * @param epsilon the desired accuracy.
      * @return Returns the root of the function given the specified interval.
      */
     public  double bisectionMethod(double a, double b, double epsilon) {
@@ -51,7 +51,7 @@ abstract class Function {
 
     /**
      * Performs the bisection method for finding the root of the function according the given interval
-     * with a default accuracy of 10^-5.
+     * With a default accuracy of 10^-5.
      *
      * @param a the left endpoint.
      * @param b the right endpoint.
@@ -62,11 +62,12 @@ abstract class Function {
     }
 
     /**
-     * Performs the Newton-Raphson method to find the root of the function starting from the given initial value.
+     * Performs the Newton Raphson method for finding the root of the function,
+     * starting from the given initial value.
      *
-     * @param a the initial value
-     * @param epsilon the desired accuracy of the result
-     * @return the root of the function
+     * @param a The initial value.
+     * @param epsilon The desired accuracy.
+     * @return Returns the root of the function.
      */
     public double newtonRaphsonMethod(double a, double epsilon) {
         while (!(Math.abs(this.valueAt(a)) < epsilon)) {
@@ -79,21 +80,22 @@ abstract class Function {
     }
 
     /**
-     * Performs the Newton-Raphson method to find the root of the function starting from the given initial value
-     * with a default accuracy of 10^-5.
+     * Performs the Newton Raphson method for finding the root of the function,
+     * starting from the given initial value.
+     * With a default accuracy of 10^-5.
      *
-     * @param a the initial value
-     * @return the root of the function
+     * @param a The initial value.
+     * @return Returns the root of the function
      */
     public double newtonRaphsonMethod(double a) {
         return newtonRaphsonMethod(a, Math.pow(10, -5));
     }
 
     /**
-     * Calculates the Taylor polynomial of the function up to the specified degree.
+     * Calculates the Taylor polynomial of the function according to the specified degree.
      *
-     * @param n the degree of the Taylor polynomial
-     * @return the Taylor polynomial of the function
+     * @param n The given degree of the Taylor polynomial.
+     * @return Returns the Taylor polynomial of the function according to the specified degree.
      */
     public Function taylorPolynomial(int n) {
         Function function = this;
