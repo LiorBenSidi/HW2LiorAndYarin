@@ -1,14 +1,9 @@
 /**
- * A class representing a constant mathematical function.
+ * A class representing a constant function.
  */
 public class Constant extends Function {
     private final double value;
 
-    /**
-     * Constructs a constant function with the specified value.
-     *
-     * @param value the value of the constant
-     */
     public Constant(double value) {
         this.value = value;
     }
@@ -16,8 +11,8 @@ public class Constant extends Function {
     /**
      * Calculates the value of the constant function, which is always equal to its specified value.
      *
-     * @param x the input value (ignored)
-     * @return the constant value
+     * @param x The value of the constant function.
+     * @return the constant value.
      */
     @Override
     public double valueAt(double x) {
@@ -25,9 +20,9 @@ public class Constant extends Function {
     }
 
     /**
-     * Returns the derivative of the constant function, which is always zero.
+     * Returns the derivative of the constant function, which is always equals to 0.
      *
-     * @return the derivative function (a constant with value zero)
+     * @return The derivative function (a constant with 0 for its value).
      */
     @Override
     public Function derivative() {
@@ -37,7 +32,7 @@ public class Constant extends Function {
     /**
      * Returns a string representation of the constant function.
      *
-     * @return a string representation of the constant value, rounded to the nearest integer if it is an integer
+     * @return a string representation of the constant value (rounded to integer if it is an integer).
      */
     @Override
     public String toString() {

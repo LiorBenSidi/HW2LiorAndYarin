@@ -99,6 +99,7 @@ abstract class Function {
     public Function taylorPolynomial(int n) {
         Function function = this;
         ItemInPolynomial[] taylorItems = new ItemInPolynomial[n + 1];
+        /*
         if(function instanceof Polynomial) {
             for(int i = 0; (i < ((Polynomial) function).getPolynomial().length) && (i < n + 1); i++) {
                 if(((Polynomial) function).getPolynomial()[i] != null) {
@@ -108,11 +109,12 @@ abstract class Function {
             }
             return new Polynomial(taylorItems);
         }
+         */
         taylorItems[0] = new ItemInPolynomial(valueAt(0), 0);
         if (taylorItems.length > 1) {
             for (int i = 1; i < n + 1; i++) {
                 function =  function.derivative();
-                int count = 1;
+                double count = 1.0;
                 double derivative = function.valueAt(0);
                 for (int j = 1; j <= i; j++) {
                     count *= j;

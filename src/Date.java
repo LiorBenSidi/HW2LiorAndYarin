@@ -1,5 +1,5 @@
 /**
- * A class representing a date with day, month, and year components.
+ * A class representing a date with day, month, and year (Gregorian Date).
  */
 public class Date {
     protected int day, month, year;
@@ -8,9 +8,9 @@ public class Date {
      * Constructs a date with the specified year, month, and day.
      * If the provided values are invalid, default values are used (1/1/0).
      *
-     * @param year the year component of the date
-     * @param month the month component of the date
-     * @param day the day component of the date
+     * @param year The year of the date.
+     * @param month The month of the date.
+     * @param day The day of the date.
      */
     public Date(int year, int month, int day) {
         if(day<=0 || day>31){
@@ -43,11 +43,11 @@ public class Date {
     }
 
     /**
-     * Checks if the current date is equal to the specified object.
-     * Two dates are considered equal if their day, month, and year components are equal.
+     * Checks if the current date is equal(according the terms) to the object provided.
+     * Two dates are considered equal if all fields are equal(their day, month, and year fields).
      *
-     * @param other the object to compare
-     * @return true if the dates are equal, false otherwise
+     * @param other The object we compare to.
+     * @return Returns 'true' if the dates are equal, else - 'false'.
      */
     @Override
     public boolean equals(Object other) {
@@ -62,21 +62,22 @@ public class Date {
     }
 
     /**
-     * Generates a hash code for the current date object.
-     * The hash code is calculated using the day, month, and year components.
+     * Generates a hash code for the current date object that represents it.
+     * The hash code is calculated using the day, month, and year fields.
+     * We use multiplication and addition operations to combine the hash codes,
+     * for producing a distribution of hash values.
      *
      * @return the hash code value
      */
     @Override
-    public int hashCode() { //The use of multiplication and addition operations to combine the hash codes,
-                           // for producing a distribution of hash values.
+    public int hashCode() {
         return 31 * (day + 1) + 11 * (month + 1) + 3997 * (year + 1);
     }
 
     /**
-     * Returns a string representation of the date in the format "DD/MM/YYYY".
+     * Returns a string representation of the date in the required format "DD/MM/YYYY".
      *
-     * @return the string representation of the date
+     * @return Returns the string representation of the date.
      */
     @Override
     public String toString() {
