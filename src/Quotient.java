@@ -1,6 +1,5 @@
 public class Quotient extends Function {
-    private final Function numerator;
-    private final Function denominator;
+    private final Function numerator, denominator;
 
     public Quotient(Function numerator, Function denominator) {
         this.numerator = numerator;
@@ -9,22 +8,17 @@ public class Quotient extends Function {
 
     @Override
     public double valueAt(double x) {
-        double numeratorValue = numerator.valueAt(x);
-        double denominatorValue = denominator.valueAt(x);
-        return numeratorValue / denominatorValue;
+        return numerator.valueAt(x) / denominator.valueAt(x);
     }
 
     @Override
     public Function derivative() {
         Function numeratorDerivative = numerator.derivative();
         Function denominatorDerivative = denominator.derivative();
+        numeratorDerivative = new Difference(new Product(numeratorDerivative, denominator),
+                                             new Product(denominatorDerivative, numerator));
 
-        Function numeratorTerm1 = new Product(numeratorDerivative, denominator);
-        Function numeratorTerm2 = new Product(denominatorDerivative , numerator);
-        numeratorDerivative = new Difference(numeratorTerm1, numeratorTerm2);
-
-        Function denominatorTerm = new Power(denominator, 2);
-        return new Quotient(numeratorDerivative, denominatorTerm);
+        return new Quotient(numeratorDerivative, new Power(denominator, 2));
     }
 
     @Override

@@ -8,6 +8,7 @@ public class MultiSum extends Function {
         for(int i = 2; i < args.length + 2; i++) {
             factors[i] = args[i-2];
         }
+
         this.functions = factors;
     }
 
@@ -17,13 +18,14 @@ public class MultiSum extends Function {
         for (Function function : functions) {
             sum += function.valueAt(x);
         }
+
         return sum;
     }
 
     @Override
     public Function derivative() {
         Function[] derivatives = new Function[functions.length];
-        for (int i = 0; i < functions.length; i++) {
+        for(int i = 0; i < functions.length; i++) {
             derivatives[i] = functions[i].derivative();
         }
         return splitDerivative(derivatives);
@@ -46,15 +48,17 @@ public class MultiSum extends Function {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("(");
-        for (int i = 0; i < functions.length; i++) {
-            sb.append(functions[i].toString());
-            if (i < functions.length - 1) {
-                sb.append(" + ");
+        int numOfFunctions = functions.length;
+        StringBuilder builder = new StringBuilder();
+        builder.append("(");
+        for (int i = 0; i < numOfFunctions; i++) {
+            builder.append(functions[i].toString());
+            if (i < numOfFunctions - 1) {
+                builder.append(" + ");
             }
         }
-        sb.append(")");
-        return sb.toString();
+
+        builder.append(")");
+        return builder.toString();
     }
 }

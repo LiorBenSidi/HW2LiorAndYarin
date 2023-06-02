@@ -23,13 +23,14 @@ public class Polynomial extends Function {
     @Override
     public double valueAt(double x) {
         double result = 0.0;
-        for (ItemInPolynomial term : polynomial) {
-            if (term != null) { // Check for null terms
-                double coefficient = term.getCoefficient();
-                int exponent = term.getExponent();
+        for(int i = 0; i < polynomial.length; i++) {
+            if (polynomial[i] != null) { // Check for null terms
+                double coefficient = polynomial[i].getCoefficient();
+                int exponent = polynomial[i].getExponent();
                 result += coefficient * Math.pow(x, exponent);
             }
         }
+
         return result;
     }
 
@@ -37,59 +38,53 @@ public class Polynomial extends Function {
     public Function derivative() {
         ItemInPolynomial[] derivativePolynomial = new ItemInPolynomial[polynomial.length];
         for (int i = 0; i < polynomial.length; i++) {
-            ItemInPolynomial term = polynomial[i];
-            if (term != null) {
-                double coefficient = term.getCoefficient() * term.getExponent();
-                int exponent = term.getExponent() - 1;
+            if (polynomial[i] != null) {
+                double coefficient = polynomial[i].getCoefficient() * polynomial[i].getExponent();
+                int exponent = polynomial[i].getExponent() - 1;
                 derivativePolynomial[i] = new ItemInPolynomial(coefficient, exponent);
             }
         }
+
         return new Polynomial(derivativePolynomial);
     }
 
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        boolean isFirstTerm = true;
-
-        for (ItemInPolynomial term : polynomial) {
-            if (term == null) {
-                continue;
-            }
-
-            double coefficient = term.getCoefficient();
-            int exponent = term.getExponent();
-
-            if (coefficient == 0.0) {
-                continue;
-            }
-
-            if (!isFirstTerm && coefficient > 0.0) {
-                builder.append(" + ");
-            }
-
-            if (coefficient < 0.0 && exponent != 0) {
-                builder.append(" - ");
-                coefficient = Math.abs(coefficient);
-            }
-
-            if (exponent == 0) {
-                builder.append(formatCoefficient(coefficient));
+        boolean isFirstItem = false;
+        int i = 0;
+        while (i < polynomial.length) {
+            if (polynomial[i] == null) {
+                i++;
             } else {
-                if (coefficient != 1.0) {
-                    builder.append(formatCoefficient(coefficient));
-                }
-
-                builder.append("x");
-
-                if (exponent != 1) {
-                    builder.append("^").append(exponent);
+                double coefficient = polynomial[i].getCoefficient();
+                int exponent = polynomial[i].getExponent();
+                if (coefficient == 0.0) {
+                    i++;
+                } else {
+                    if (isFirstItem && coefficient > 0.0) {
+                        builder.append(" + ");
+                    }
+                    if (coefficient < 0.0 && exponent != 0) {
+                        builder.append(" - ");
+                        coefficient = Math.abs(coefficient);
+                    }
+                    if (exponent == 0) {
+                        builder.append(formatCoefficient(coefficient));
+                    } else {
+                        if (coefficient != 1.0) {
+                            builder.append(formatCoefficient(coefficient));
+                        }
+                        builder.append("x");
+                        if (exponent != 1) {
+                            builder.append("^").append(exponent);
+                        }
+                    }
+                    isFirstItem = true;
+                    i++;
                 }
             }
-
-            isFirstTerm = false;
         }
-
         if (builder.length() == 0) {
             builder.append("0");
         }
@@ -97,13 +92,11 @@ public class Polynomial extends Function {
         return "(" + builder + ")";
     }
     private String formatCoefficient(double coefficient) {
-        if (isWholeNumber(coefficient)) {
-            return String.valueOf((int) coefficient);
-        } else {
+        boolean isWholeNumber = coefficient == Math.floor(coefficient);
+        if (!(isWholeNumber)) {
             return String.valueOf(coefficient);
+        } else {
+            return String.valueOf((int) coefficient);
         }
-    }
-    private boolean isWholeNumber(double number) {
-        return number == Math.floor(number);
     }
 }

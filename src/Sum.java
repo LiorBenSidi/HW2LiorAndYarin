@@ -1,6 +1,5 @@
 public class Sum extends Function {
-    private final Function f;
-    private final Function g;
+    private final Function f, g;
 
     public Sum(Function f, Function g) {
         this.f = f;

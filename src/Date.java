@@ -1,7 +1,5 @@
 public class Date {
-    protected int day;
-    protected int month;
-    protected int year; // A number between -9999 to 9999
+    protected int day, month, year;
 
     public Date(int year, int month, int day) {
         if(day<=0 || day>31){
@@ -36,12 +34,15 @@ public class Date {
             return false;
         }
         Date otherDate = (Date) other;
-        return this.day == otherDate.day && this.month == otherDate.month && this.year == otherDate.year;
+        return (day == otherDate.day) && (month == otherDate.month) && (year == otherDate.year);
     }
+
     @Override
-    public int hashCode() {
-        return 31 * day + 12 * month + 3999 * year;
+    public int hashCode() { //The use of multiplication and addition operations to combine the hash codes,
+                           // for producing a distribution of hash values.
+        return 31 * (day + 1) + 11 * (month + 1) + 3997 * (year + 1);
     }
+
     @Override
     public String toString() {
         int DD = this.day;

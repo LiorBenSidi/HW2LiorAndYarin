@@ -17,16 +17,12 @@ public class Constant extends Function {
 
     @Override
     public String toString() {
-        if (isDoubleInt(value)) {
+        final double TOLERANCE = 1E-5; //select a "tolerance range" for being an integer
+        boolean isDoubleInt = Math.abs(Math.floor(value) - value) < TOLERANCE;
+        if (isDoubleInt) {
             return "("  + (int) value + ")";
         } else {
             return "(" + value + ")";
         }
-    }
-
-    public boolean isDoubleInt(double number) {
-        final double TOLERANCE = 1E-5; //select a "tolerance range" for being an integer
-        return Math.abs(Math.floor(number) - number) < TOLERANCE;
-
     }
 }

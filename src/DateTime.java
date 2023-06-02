@@ -1,6 +1,6 @@
 public class DateTime extends Date {
-    private int hour; // A number between 0 and 23
-    private int minute; // A number between 0 and 59
+    private int hour, minute;
+
     public DateTime(int year, int month, int day, int hour, int minute) {
         super(year, month, day);
         if(hour < 0 || hour > 23){
@@ -14,9 +14,11 @@ public class DateTime extends Date {
             this.minute = minute;
         }
     }
+
     public void setMonth(int month) {
         super.setMonth(month);
     }
+
     public void setHour(int hour) {
         if(!(hour < 0 || hour > 23)){
             this.hour = hour;
@@ -38,13 +40,15 @@ public class DateTime extends Date {
             return false;
         }
         DateTime otherDateTime = (DateTime) other;
-        return this.day == otherDateTime.day && this.month == otherDateTime.month && this.year == otherDateTime.year
-                && this.hour == otherDateTime.hour && this.minute == otherDateTime.minute;
+        return super.equals(otherDateTime) && hour == otherDateTime.hour && minute == otherDateTime.minute;
     }
+
     @Override
-    public int hashCode() {
-        return super.hashCode() + 24 * (hour +1) + 60 * (minute + 1);
+    public int hashCode() { //The use of multiplication and addition operations to combine the hash codes,
+                           // for producing a distribution of hash values.
+        return super.hashCode() + 23 * (hour +1) + 59 * (minute + 1);
     }
+
     @Override
     public String toString() {
         int hh = this.hour;
@@ -61,6 +65,7 @@ public class DateTime extends Date {
         } else {
             strMm = String.valueOf(mm);
         }
+
         return super.toString() + " " + strHh + ":" + strMm;
     }
 }

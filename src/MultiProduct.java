@@ -1,5 +1,5 @@
 public class MultiProduct extends Function {
-    private final Function[] factors;
+    private final Function[] functions;
 
     public MultiProduct(Function f, Function g, Function... args) {
         Function[] factors = new Function[args.length + 2];
@@ -8,7 +8,7 @@ public class MultiProduct extends Function {
         for(int i = 2; i < args.length + 2; i++) {
             factors[i] = args[i-2];
         }
-        this.factors = factors;
+        this.functions = factors;
     }
 
     private MultiProduct(Function derivative, Function[] otherFunctions) {
@@ -17,50 +17,54 @@ public class MultiProduct extends Function {
         for(int i = 1; i < otherFunctions.length + 1; i++) {
             factors[i] = otherFunctions[i-1];
         }
-        this.factors = factors;
+        this.functions = factors;
     }
 
     @Override
     public double valueAt(double x) {
         double result = 1.0;
-        for (Function factor : factors) {
+        for (Function factor : functions) {
             result *= factor.valueAt(x);
         }
+
         return result;
     }
 
     @Override
     public Function derivative() {
-        Function[] derivatives = new Function[factors.length];
-        for (int i = 0; i < factors.length; i++) {
-            Function[] otherFunctions = new Function[factors.length - 1];
-            int index = 0;
-            for(int j = 0; j < factors.length; j++) {
-                if (j != i) {
-                    otherFunctions[index++] = factors[j];
+        int numOfFunctions = functions.length;
+        Function[] derivatives = new Function[numOfFunctions];
+        for (int i = 0; i < numOfFunctions; i++) {
+            int k = 0;
+            Function[] otherFunctions = new Function[numOfFunctions - 1];
+            for(int j = 0; j < numOfFunctions; j++) {
+                if (i != j) {
+                    otherFunctions[k++] = functions[j];
                 }
             }
-            derivatives[i] = new MultiProduct(factors[i].derivative(),otherFunctions);
+            derivatives[i] = new MultiProduct(functions[i].derivative(),otherFunctions);
         }
-        return splitDerivative(derivatives);
 
+        return splitDerivative(derivatives);
     }
+
     public MultiSum splitDerivative(Function[] derivatives) {
-        return MultiSum.getMultiSum(derivatives, factors);
+        return MultiSum.getMultiSum(derivatives, functions);
     }
 
     @Override
     public String toString() {
+        boolean isFirstFunction = true;
         StringBuilder builder = new StringBuilder();
-        boolean isFirstFactor = true;
-        for (Function factor : factors) {
-            if (isFirstFactor) {
-                builder.append(factor.toString());
-                isFirstFactor = false;
+        for (Function function : functions) {
+            if (!(isFirstFunction)) {
+                builder.append(" * ").append(function.toString());
             } else {
-                builder.append(" * ").append(factor.toString());
+                builder.append(function.toString());
+                isFirstFunction = false;
             }
         }
+
         return "(" + builder + ")";
     }
 }

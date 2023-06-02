@@ -22,19 +22,14 @@ abstract class Function {
     }
     public double newtonRaphsonMethod(double a, double epsilon) {
         while (!(Math.abs(this.valueAt(a)) < epsilon)) {
-            a = withdrawal(a);
+            double fx = valueAt(a);
+            double dfx = derivative().valueAt(a);
+            a = a - (fx / dfx);
         }
-        if (this instanceof Negation) {
-            return -a;
-        } else {
-            return a;
-        }
+
+        return a;
     }
-    public double withdrawal(double x) {
-        double fx = valueAt(x);
-        double dfx = derivative().valueAt(x);
-        return x - (fx / dfx);
-    }
+
     public double newtonRaphsonMethod(double a) {
         return newtonRaphsonMethod(a, Math.pow(10, -5));
     }
