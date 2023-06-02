@@ -1,15 +1,10 @@
 /**
- * Represents a function that computes the product of two functions.
+ * A class that represents a function that computes the product of two functions.
+ * Inherits from the Function abstract class.
  */
 public class Product extends Function {
     private final Function f, g;
 
-    /**
-     * Constructs a Product object with the given functions.
-     *
-     * @param f the first function
-     * @param g the second function
-     */
     public Product(Function f, Function g) {
         this.f = f;
         this.g = g;
@@ -18,8 +13,8 @@ public class Product extends Function {
     /**
      * Computes the value of the product function at a given input value.
      *
-     * @param x the input value
-     * @return the result of evaluating the product function at the input value
+     * @param x The given value
+     * @return The result of evaluating the product function at the input value
      */
     @Override
     public double valueAt(double x) {
@@ -27,19 +22,19 @@ public class Product extends Function {
     }
 
     /**
-     * Computes the derivative of the product function using the product rule.
+     * Computes the derivative function of the product function using the product rule.
      *
-     * @return the derivative of the product function as a Function object
+     * @return The derivative function of the product function
      */
     @Override
-    public Function derivative() {
+    public Sum derivative() {
         return new Sum(new Product(f.derivative(), g), new Product(g.derivative() , f));
     }
 
     /**
      * Returns the string representation of the product function.
      *
-     * @return the string representation of the product function
+     * @return The string representation of the product function
      */
     @Override
     public String toString() {

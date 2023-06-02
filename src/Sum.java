@@ -1,26 +1,20 @@
 /**
  * A class that represents a function that computes the sum of two functions.
+ * Inherits from the Function abstract class.
  */
 public class Sum extends Function {
     private final Function f, g;
 
-
-    /**
-     * Constructs a Sum object with the given functions to be summed.
-     *
-     * @param f The first function.
-     * @param g The second function.
-     */
     public Sum(Function f, Function g) {
         this.f = f;
         this.g = g;
     }
 
     /**
-     * Computes the value of the sum function at a given input value.
+     * Computes the value of the sum function according to a given input value.
      *
-     * @param x the input value
-     * @return the result of evaluating the sum function at the input value
+     * @param x The given value
+     * @return The result of evaluating the sum function according to a given input value
      */
     @Override
     public double valueAt(double x) {
@@ -28,20 +22,20 @@ public class Sum extends Function {
     }
 
     /**
-     * Computes the derivative of the sum function.
+     * Computes the derivative function of the sum function.
      * We do it by taking the derivatives of the individual functions.
      *
-     * @return Returns the derivative of the sum function as a Function object.
+     * @return The derivative function of the sum function as a Function object
      */
     @Override
-    public Function derivative() {
+    public Sum derivative() {
         return new Sum(f.derivative(), g.derivative());
     }
 
     /**
      * Returns the string representation of the sum function.
      *
-     * @return Returns the string representation of the sum function.
+     * @return The string representation of the sum function
      */
     @Override
     public String toString() {

@@ -1,5 +1,6 @@
 /**
- * Represents a function that is the product of multiple functions.
+ * A class that represents a function that is the product of multiple functions.
+ * Inherits from the Function abstract class.
  */
 public class MultiProduct extends Function {
     private final Function[] functions;
@@ -8,9 +9,9 @@ public class MultiProduct extends Function {
      * Constructs a MultiProduct object with the given functions.
      * The product is computed as f * g * args[0] * args[1] * ...
      *
-     * @param f    the first function
-     * @param g    the second function
-     * @param args additional functions
+     * @param f The first function
+     * @param g The second function
+     * @param args Additional functions
      */
     public MultiProduct(Function f, Function g, Function... args) {
         Function[] factors = new Function[args.length + 2];
@@ -32,10 +33,10 @@ public class MultiProduct extends Function {
     }
 
     /**
-     * Computes the value of the MultiProduct at a given input value.
+     * Computes the value of the MultiProduct at a given value.
      *
-     * @param x the input value
-     * @return the result of evaluating the MultiProduct at the input value
+     * @param x The given value
+     * @return The result of evaluating the MultiProduct at the input value
      */
     @Override
     public double valueAt(double x) {
@@ -48,12 +49,12 @@ public class MultiProduct extends Function {
     }
 
     /**
-     * Computes the derivative of the MultiProduct.
+     * Computes the derivative function of the MultiProduct according to the required requirements.
      *
-     * @return the derivative of the MultiProduct as a Function object
+     * @return The derivative function of the MultiProduct
      */
     @Override
-    public Function derivative() {
+    public MultiSum derivative() {
         int numOfFunctions = functions.length;
         Function[] derivatives = new Function[numOfFunctions];
         for (int i = 0; i < numOfFunctions; i++) {
@@ -74,8 +75,8 @@ public class MultiProduct extends Function {
     /**
      * Splits the derivatives of the MultiProduct into a MultiSum.
      *
-     * @param derivatives the array of derivative functions
-     * @return a MultiSum object representing the sum of the derivatives
+     * @param derivatives An array of derivative functions
+     * @return A MultiSum object representing the sum of the derivatives functions
      */
     public MultiSum splitDerivative(Function[] derivatives) {
         return MultiSum.getMultiSum(derivatives, functions);
@@ -84,7 +85,7 @@ public class MultiProduct extends Function {
     /**
      * Returns the string representation of the MultiProduct.
      *
-     * @return the string representation of the MultiProduct
+     * @return The string representation of the MultiProduct
      */
     @Override
     public String toString() {

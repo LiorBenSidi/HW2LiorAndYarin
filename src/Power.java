@@ -1,23 +1,21 @@
+/**
+ * A class that represents a function that calculates the power of the function.
+ * Inherits from the Function abstract class.
+ */
 public class Power extends Function {
     private final Function f;
     private final int n;
 
-    /**
-     * Constructs a Power object with the given function and power.
-     *
-     * @param f the base function
-     * @param n the power to raise the function to
-     */
     public Power(Function f, int n) {
         this.f = f;
         this.n = n;
     }
 
     /**
-     * Computes the value of the power function at a given input value.
+     * Computes the value of the power function at a given value.
      *
-     * @param x the input value
-     * @return the result of evaluating the power function at the input value
+     * @param x The given value
+     * @return The result of evaluating the power function at the input value
      */
     @Override
     public double valueAt(double x) {
@@ -27,7 +25,7 @@ public class Power extends Function {
     /**
      * Computes the derivative of the power function.
      *
-     * @return the derivative of the power function as a Function object
+     * @return Returns the derivative function of the power function
      */
     @Override
     public Function derivative() {
@@ -41,7 +39,7 @@ public class Power extends Function {
     /**
      * Returns the string representation of the power function.
      *
-     * @return the string representation of the power function
+     * @return The string representation of the power function
      */
     @Override
     public String toString() {

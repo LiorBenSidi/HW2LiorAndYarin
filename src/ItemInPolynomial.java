@@ -1,5 +1,5 @@
 /**
- * A class representing an item in a polynomial.
+ * A class that representing an item in a polynomial.
  */
 public class ItemInPolynomial {
     private final double coefficient;
@@ -8,7 +8,7 @@ public class ItemInPolynomial {
     /**
      * Constructs an ItemInPolynomial object with the specified coefficient and exponent.
      *
-     * @param coefficient the coefficient of the item
+     * @param coefficient The coefficient of the item
      * @param exponent the exponent of the item
      */
     public ItemInPolynomial(double coefficient, int exponent) {

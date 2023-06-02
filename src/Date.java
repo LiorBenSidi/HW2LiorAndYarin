@@ -44,10 +44,10 @@ public class Date {
 
     /**
      * Checks if the current date is equal(according the terms) to the object provided.
-     * Two dates are considered equal if all fields are equal(their day, month, and year fields).
+     * Two dates objects are considered equal if all fields are equal(their day, month, and year fields).
      *
-     * @param other The object we compare to.
-     * @return Returns 'true' if the dates are equal, else - 'false'.
+     * @param other The object we compare to
+     * @return 'true' if the dates are equal, else - 'false'
      */
     @Override
     public boolean equals(Object other) {
@@ -71,13 +71,13 @@ public class Date {
      */
     @Override
     public int hashCode() {
-        return 31 * (day + 1) + 11 * (month + 1) + 3997 * (year + 1);
+        return 31 * (day + 1) + 11 * (month + 1) + 11 * (year + 3999);
     }
 
     /**
      * Returns a string representation of the date in the required format "DD/MM/YYYY".
      *
-     * @return Returns the string representation of the date.
+     * @return The string representation of the date
      */
     @Override
     public String toString() {

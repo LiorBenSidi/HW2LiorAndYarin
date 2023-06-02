@@ -1,5 +1,6 @@
 /**
- * A class representing a polynomial function.
+ * A class that representing a polynomial function.
+ * Inherits from the Function abstract class.
  */
 public class Polynomial extends Function {
     private final ItemInPolynomial[] polynomial;
@@ -8,7 +9,7 @@ public class Polynomial extends Function {
      * Constructs a Polynomial object with the specified coefficients.
      * The coefficients are provided as a variable number of arguments in decreasing order of exponents.
      *
-     * @param args the coefficients of the polynomial in decreasing order of exponents
+     * @param args The coefficients of the polynomial in decreasing order of exponents
      */
     public Polynomial(double... args) {
         this.polynomial = new ItemInPolynomial[args.length];
@@ -24,7 +25,7 @@ public class Polynomial extends Function {
     /**
      * Constructs a Polynomial object with the specified polynomial items.
      *
-     * @param polynomial the array of ItemInPolynomial objects representing the polynomial items
+     * @param polynomial The array of ItemInPolynomial objects representing the polynomial items
      */
     public Polynomial(ItemInPolynomial[] polynomial) {
         this.polynomial = polynomial;
@@ -33,7 +34,7 @@ public class Polynomial extends Function {
     /**
      * Returns the polynomial array.
      *
-     * @return the polynomial array
+     * @return The polynomial array
      */
     public ItemInPolynomial[] getPolynomial() {
         return polynomial;
@@ -42,8 +43,8 @@ public class Polynomial extends Function {
     /**
      * Evaluates the polynomial function at the specified value of x.
      *
-     * @param x the value of x
-     * @return the result of evaluating the polynomial at x
+     * @param x The value of x
+     * @return The result of evaluating the polynomial at x
      */
     @Override
     public double valueAt(double x) {
@@ -60,12 +61,12 @@ public class Polynomial extends Function {
     }
 
     /**
-     * Computes the derivative of the polynomial function.
+     * Computes the derivative function of the polynomial function.
      *
-     * @return the derivative of the polynomial as a new Polynomial object
+     * @return The derivative function of the polynomial as a new Polynomial object
      */
     @Override
-    public Function derivative() {
+    public Polynomial derivative() {
         ItemInPolynomial[] derivativePolynomial = new ItemInPolynomial[polynomial.length];
         for (int i = 0; i < polynomial.length; i++) {
             if (polynomial[i] != null) {
@@ -79,9 +80,9 @@ public class Polynomial extends Function {
     }
 
     /**
-     * Returns a string representation of the polynomial.
+     * Returns the string representation of the polynomial function.
      *
-     * @return a string representation of the polynomial
+     * @return The string representation of the polynomial function
      */
     @Override
     public String toString() {
@@ -130,8 +131,8 @@ public class Polynomial extends Function {
     /**
      * Formats the coefficient value as a string.
      *
-     * @param coefficient the coefficient value
-     * @return the formatted coefficient as a string
+     * @param coefficient The coefficient value
+     * @return The formatted coefficient as a string
      */
     private String formatCoefficient(double coefficient) {
         boolean isWholeNumber = coefficient == Math.floor(coefficient);

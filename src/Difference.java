@@ -1,6 +1,6 @@
 /**
  * A class representing the difference of two functions.
- * Inherits from the Function class.
+ * Inherits from the Function abstract class.
  */
 public class Difference extends Function {
     private final Function f, g;
@@ -19,8 +19,8 @@ public class Difference extends Function {
     /**
      * Computes the value of the difference of the two functions at the given point.
      *
-     * @param x the input value
-     * @return the value of the difference of the functions at x
+     * @param x the given value
+     * @return The value of the difference of the functions at x
      */
     @Override
     public double valueAt(double x) {
@@ -30,17 +30,17 @@ public class Difference extends Function {
     /**
      * Computes the derivative of the difference of the two functions.
      *
-     * @return the derivative function of the difference
+     * @return The derivative function of the difference
      */
     @Override
-    public Function derivative() {
+    public Difference derivative() {
         return new Difference(f.derivative(), g.derivative());
     }
 
     /**
      * Returns a string representation of the difference of the two functions.
      *
-     * @return the string representation of the difference
+     * @return The string representation of the difference
      */
     @Override
     public String toString() {

@@ -1,25 +1,20 @@
 /**
- * Represents a function that computes the quotient of two functions.
+ * A class that represents a function that computes the quotient of two functions.
+ * Inherits from the Function abstract class.
  */
 public class Quotient extends Function {
     private final Function numerator, denominator;
 
-    /**
-     * Constructs a Quotient object with the given numerator and denominator functions.
-     *
-     * @param numerator   the numerator function
-     * @param denominator the denominator function
-     */
     public Quotient(Function numerator, Function denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
     }
 
     /**
-     * Computes the value of the quotient function at a given input value.
+     * Computes the value of the quotient function at a given value.
      *
-     * @param x the input value
-     * @return the result of evaluating the quotient function at the input value
+     * @param x The given value
+     * @return The result of evaluating the quotient function at the input value
      */
     @Override
     public double valueAt(double x) {
@@ -27,12 +22,12 @@ public class Quotient extends Function {
     }
 
     /**
-     * Computes the derivative of the quotient function using the quotient rule.
+     * Computes the derivative function of the quotient function using the quotient rule.
      *
-     * @return the derivative of the quotient function as a Function object
+     * @return The derivative function of the quotient function
      */
     @Override
-    public Function derivative() {
+    public Quotient derivative() {
         Function numeratorDerivative = numerator.derivative();
         Function denominatorDerivative = denominator.derivative();
         numeratorDerivative = new Difference(new Product(numeratorDerivative, denominator),
@@ -44,7 +39,7 @@ public class Quotient extends Function {
     /**
      * Returns the string representation of the quotient function.
      *
-     * @return the string representation of the quotient function
+     * @return The string representation of the quotient function
      */
     @Override
     public String toString() {
