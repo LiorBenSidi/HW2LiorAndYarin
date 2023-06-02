@@ -49,15 +49,6 @@ public class MultiProduct extends Function {
         return MultiSum.getMultiSum(derivatives, factors);
     }
 
-
-    @Override
-    public double newtonRaphsonMethod(double a, double epsilon) {
-        while (!(Math.abs(this.valueAt(a)) < epsilon)) {
-            a = withdrawal(a);
-        }
-        return a;
-    }
-
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -71,11 +62,5 @@ public class MultiProduct extends Function {
             }
         }
         return "(" + builder + ")";
-    }
-
-    private double withdrawal(double x) {
-        double fx = valueAt(x);
-        double dfx = derivative().valueAt(x);
-        return x - (fx / dfx);
     }
 }

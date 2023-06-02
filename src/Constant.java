@@ -16,11 +16,6 @@ public class Constant extends Function {
     }
 
     @Override
-    public double newtonRaphsonMethod(double a, double epsilon) {
-        return 0.0; // Returns the default value of double.
-    }
-
-    @Override
     public String toString() {
         if (isDoubleInt(value)) {
             return "("  + (int) value + ")";

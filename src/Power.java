@@ -20,23 +20,8 @@ public class Power extends Function {
             return new MultiProduct(new Constant(n), new Power(f, n - 1), f.derivative());
         }
     }
-
-    @Override
-    public double newtonRaphsonMethod(double a, double epsilon) {
-        while (!(Math.abs(this.valueAt(a)) < epsilon)) {
-            a = withdrawal(a);
-        }
-        return a;
-    }
-
     @Override
     public String toString() {
         return "(" + f.toString() + "^" + n + ")";
-    }
-
-    private double withdrawal(double x) {
-        double fx = valueAt(x);
-        double dfx = derivative().valueAt(x);
-        return x - (fx / dfx);
     }
 }

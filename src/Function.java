@@ -20,7 +20,21 @@ abstract class Function {
     public double bisectionMethod(double a, double b) {
         return bisectionMethod(a, b, Math.pow(10, -5));
     }
-    public abstract double newtonRaphsonMethod(double a, double epsilon);
+    public double newtonRaphsonMethod(double a, double epsilon) {
+        while (!(Math.abs(this.valueAt(a)) < epsilon)) {
+            a = withdrawal(a);
+        }
+        if (this instanceof Negation) {
+            return -a;
+        } else {
+            return a;
+        }
+    }
+    public double withdrawal(double x) {
+        double fx = valueAt(x);
+        double dfx = derivative().valueAt(x);
+        return x - (fx / dfx);
+    }
     public double newtonRaphsonMethod(double a) {
         return newtonRaphsonMethod(a, Math.pow(10, -5));
     }
@@ -51,7 +65,5 @@ abstract class Function {
         }
 
         return new Polynomial(taylorItems);
-
     }
-
 }

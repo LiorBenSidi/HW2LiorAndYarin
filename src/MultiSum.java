@@ -45,14 +45,6 @@ public class MultiSum extends Function {
     }
 
     @Override
-    public double newtonRaphsonMethod(double a, double epsilon) {
-        while (!(Math.abs(this.valueAt(a)) < epsilon)) {
-            a = withdrawal(a);
-        }
-        return a;
-    }
-
-    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("(");
@@ -64,11 +56,5 @@ public class MultiSum extends Function {
         }
         sb.append(")");
         return sb.toString();
-    }
-
-    private double withdrawal(double x) {
-        double fx = valueAt(x);
-        double dfx = derivative().valueAt(x);
-        return x - (fx / dfx);
     }
 }

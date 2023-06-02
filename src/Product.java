@@ -17,21 +17,7 @@ public class Product extends Function {
     }
 
     @Override
-    public double newtonRaphsonMethod(double a, double epsilon) {
-        while (!(Math.abs(this.valueAt(a)) < epsilon)) {
-            a = withdrawal(a);
-        }
-        return a;
-    }
-
-    @Override
     public String toString() {
         return "(" + f.toString() + " * " + g.toString() + ")";
-    }
-
-    private double withdrawal(double x) {
-        double fx = valueAt(x);
-        double dfx = derivative().valueAt(x);
-        return x - (fx / dfx);
     }
 }

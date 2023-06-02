@@ -48,14 +48,6 @@ public class Polynomial extends Function {
     }
 
     @Override
-    public double newtonRaphsonMethod(double a, double epsilon) {
-        while (!(Math.abs(this.valueAt(a)) < epsilon)) {
-            a = withdrawal(a);
-        }
-        return a;
-    }
-
-    @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         boolean isFirstTerm = true;
@@ -113,11 +105,5 @@ public class Polynomial extends Function {
     }
     private boolean isWholeNumber(double number) {
         return number == Math.floor(number);
-    }
-
-    private double withdrawal(double x) {
-        double fx = valueAt(x);
-        double dfx = derivative().valueAt(x);
-        return x - (fx / dfx);
     }
 }
