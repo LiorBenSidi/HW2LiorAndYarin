@@ -1,5 +1,5 @@
 /**
- * A class representing a date and time with day, month, year, hour, and minute components.
+ * A class representing a date and time with day, month, year, hour, and minute attributes.
  * Inherits from the Date class.
  */
 public class DateTime extends Date {
@@ -9,11 +9,11 @@ public class DateTime extends Date {
      * Constructs a DateTime object with the specified year, month, day, hour, and minute.
      * If the provided values are invalid, default values are used (1/1/0 00:00).
      *
-     * @param year the year component of the date and time
-     * @param month the month component of the date and time
-     * @param day the day component of the date and time
-     * @param hour the hour component of the date and time
-     * @param minute the minute component of the date and time
+     * @param year The year attribute of the date and time.
+     * @param month The month attribute of the date and time.
+     * @param day The day attribute of the date and time.
+     * @param hour The hour attribute of the date and time.
+     * @param minute The minute attribute of the date and time.
      */
     public DateTime(int year, int month, int day, int hour, int minute) {
         super(year, month, day);
@@ -30,18 +30,18 @@ public class DateTime extends Date {
     }
 
     /**
-     * Sets the month component of the date and time to the specified value,
-     * if it is a valid month value (between 1 and 12 inclusive).
+     * Sets the month attribute of the date and time to the specified value,
+     * if it is a valid month value (between 1 and 12).
      *
-     * @param month the new month value
+     * @param month the new month value.
      */
     public void setMonth(int month) {
         super.setMonth(month);
     }
 
     /**
-     * Sets the hour component of the date and time to the specified value,
-     * if it is a valid hour value (between 0 and 23 inclusive).
+     * Sets the hour attribute of the date and time to the specified value,
+     * if it is a valid hour value (between 0 and 23).
      *
      * @param hour the new hour value
      */
@@ -52,8 +52,8 @@ public class DateTime extends Date {
     }
 
     /**
-     * Sets the minute component of the date and time to the specified value,
-     * if it is a valid minute value (between 0 and 59 inclusive).
+     * Sets the minute attribute of the date and time to the specified value,
+     * if it is a valid minute value (between 0 and 59).
      *
      * @param minute the new minute value
      */

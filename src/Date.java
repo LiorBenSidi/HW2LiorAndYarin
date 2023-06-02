@@ -1,5 +1,5 @@
 /**
- * A class representing a date with day, month, and year (Gregorian Date).
+ * A class representing a date(Gregorian Date) with day, month, and year attribute.
  */
 public class Date {
     protected int day, month, year;
@@ -8,9 +8,9 @@ public class Date {
      * Constructs a date with the specified year, month, and day.
      * If the provided values are invalid, default values are used (1/1/0).
      *
-     * @param year The year of the date.
-     * @param month The month of the date.
-     * @param day The day of the date.
+     * @param year The year attribute of the date.
+     * @param month The month attribute of the date.
+     * @param day The day attribute of the date.
      */
     public Date(int year, int month, int day) {
         if(day<=0 || day>31){
