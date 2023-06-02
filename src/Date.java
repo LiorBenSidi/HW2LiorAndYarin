@@ -1,6 +1,17 @@
+/**
+ * A class representing a date with day, month, and year components.
+ */
 public class Date {
     protected int day, month, year;
 
+    /**
+     * Constructs a date with the specified year, month, and day.
+     * If the provided values are invalid, default values are used (1/1/0).
+     *
+     * @param year the year component of the date
+     * @param month the month component of the date
+     * @param day the day component of the date
+     */
     public Date(int year, int month, int day) {
         if(day<=0 || day>31){
             this.day = 1;
@@ -19,12 +30,25 @@ public class Date {
         }
     }
 
+    /**
+     * Sets the month component of the date to the specified value,
+     * if it is a valid month value (between 1 and 12 inclusive).
+     *
+     * @param month the new month value
+     */
     public void setMonth(int month) {
         if(!(month<=0 || month > 12)){
             this.month = month;
         }
     }
 
+    /**
+     * Checks if the current date is equal to the specified object.
+     * Two dates are considered equal if their day, month, and year components are equal.
+     *
+     * @param other the object to compare
+     * @return true if the dates are equal, false otherwise
+     */
     @Override
     public boolean equals(Object other) {
         if(other == null) {
@@ -37,12 +61,23 @@ public class Date {
         return (day == otherDate.day) && (month == otherDate.month) && (year == otherDate.year);
     }
 
+    /**
+     * Generates a hash code for the current date object.
+     * The hash code is calculated using the day, month, and year components.
+     *
+     * @return the hash code value
+     */
     @Override
     public int hashCode() { //The use of multiplication and addition operations to combine the hash codes,
                            // for producing a distribution of hash values.
         return 31 * (day + 1) + 11 * (month + 1) + 3997 * (year + 1);
     }
 
+    /**
+     * Returns a string representation of the date in the format "DD/MM/YYYY".
+     *
+     * @return the string representation of the date
+     */
     @Override
     public String toString() {
         int DD = this.day;

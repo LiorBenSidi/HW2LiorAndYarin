@@ -1,7 +1,39 @@
+/**
+ * The abstract base class for mathematical functions.
+ * Subclasses must provide implementations for calculating the value of the function,
+ * its string representation, and its derivative.
+ */
 abstract class Function {
+    /**
+     * Calculates the value of the function at the given input value.
+     *
+     * @param x the input value
+     * @return the calculated value of the function
+     */
     public abstract double valueAt(double x);
+
+    /**
+     * Returns the string representation of the function.
+     *
+     * @return the string representation of the function
+     */
     public abstract String toString();
+
+    /**
+     * Calculates the derivative of the function.
+     *
+     * @return the derivative of the function
+     */
     public abstract Function derivative();
+
+    /**
+     * Performs the bisection method to find the root of the function within the given interval.
+     *
+     * @param a       the left endpoint of the interval
+     * @param b       the right endpoint of the interval
+     * @param epsilon the desired accuracy of the result
+     * @return the root of the function within the specified interval
+     */
     public  double bisectionMethod(double a, double b, double epsilon) {
         double left = a;
         double right = b;
@@ -17,9 +49,26 @@ abstract class Function {
 
         return (left + right) / 2;
     }
+
+    /**
+     * Performs the bisection method to find the root of the function within the given interval
+     * with a default accuracy of 10^-5.
+     *
+     * @param a the left endpoint of the interval
+     * @param b the right endpoint of the interval
+     * @return the root of the function within the specified interval
+     */
     public double bisectionMethod(double a, double b) {
         return bisectionMethod(a, b, Math.pow(10, -5));
     }
+
+    /**
+     * Performs the Newton-Raphson method to find the root of the function starting from the given initial value.
+     *
+     * @param a the initial value
+     * @param epsilon the desired accuracy of the result
+     * @return the root of the function
+     */
     public double newtonRaphsonMethod(double a, double epsilon) {
         while (!(Math.abs(this.valueAt(a)) < epsilon)) {
             double fx = valueAt(a);
@@ -30,9 +79,23 @@ abstract class Function {
         return a;
     }
 
+    /**
+     * Performs the Newton-Raphson method to find the root of the function starting from the given initial value
+     * with a default accuracy of 10^-5.
+     *
+     * @param a the initial value
+     * @return the root of the function
+     */
     public double newtonRaphsonMethod(double a) {
         return newtonRaphsonMethod(a, Math.pow(10, -5));
     }
+
+    /**
+     * Calculates the Taylor polynomial of the function up to the specified degree.
+     *
+     * @param n the degree of the Taylor polynomial
+     * @return the Taylor polynomial of the function
+     */
     public Function taylorPolynomial(int n) {
         Function function = this;
         ItemInPolynomial[] taylorItems = new ItemInPolynomial[n + 1];

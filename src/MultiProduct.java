@@ -1,6 +1,17 @@
+/**
+ * Represents a function that is the product of multiple functions.
+ */
 public class MultiProduct extends Function {
     private final Function[] functions;
 
+    /**
+     * Constructs a MultiProduct object with the given functions.
+     * The product is computed as f * g * args[0] * args[1] * ...
+     *
+     * @param f    the first function
+     * @param g    the second function
+     * @param args additional functions
+     */
     public MultiProduct(Function f, Function g, Function... args) {
         Function[] factors = new Function[args.length + 2];
         factors[0] = f;
@@ -20,6 +31,12 @@ public class MultiProduct extends Function {
         this.functions = factors;
     }
 
+    /**
+     * Computes the value of the MultiProduct at a given input value.
+     *
+     * @param x the input value
+     * @return the result of evaluating the MultiProduct at the input value
+     */
     @Override
     public double valueAt(double x) {
         double result = 1.0;
@@ -30,6 +47,11 @@ public class MultiProduct extends Function {
         return result;
     }
 
+    /**
+     * Computes the derivative of the MultiProduct.
+     *
+     * @return the derivative of the MultiProduct as a Function object
+     */
     @Override
     public Function derivative() {
         int numOfFunctions = functions.length;
@@ -48,10 +70,22 @@ public class MultiProduct extends Function {
         return splitDerivative(derivatives);
     }
 
+
+    /**
+     * Splits the derivatives of the MultiProduct into a MultiSum.
+     *
+     * @param derivatives the array of derivative functions
+     * @return a MultiSum object representing the sum of the derivatives
+     */
     public MultiSum splitDerivative(Function[] derivatives) {
         return MultiSum.getMultiSum(derivatives, functions);
     }
 
+    /**
+     * Returns the string representation of the MultiProduct.
+     *
+     * @return the string representation of the MultiProduct
+     */
     @Override
     public String toString() {
         boolean isFirstFunction = true;

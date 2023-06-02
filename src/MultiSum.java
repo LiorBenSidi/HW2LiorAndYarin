@@ -1,6 +1,17 @@
+/**
+ * Represents a function that is the sum of multiple functions.
+ */
 public class MultiSum extends Function {
     private final Function[] functions;
 
+    /**
+     * Constructs a MultiSum object with the given functions.
+     * The sum is computed as f + g + args[0] + args[1] + ...
+     *
+     * @param f the first function
+     * @param g the second function
+     * @param args additional functions
+     */
     public MultiSum(Function f, Function g, Function... args) {
         Function[] factors = new Function[args.length + 2];
         factors[0] = f;
@@ -12,6 +23,12 @@ public class MultiSum extends Function {
         this.functions = factors;
     }
 
+    /**
+     * Computes the value of the MultiSum at a given input value.
+     *
+     * @param x the input value
+     * @return the result of evaluating the MultiSum at the input value
+     */
     @Override
     public double valueAt(double x) {
         double sum = 0.0;
@@ -22,6 +39,11 @@ public class MultiSum extends Function {
         return sum;
     }
 
+    /**
+     * Computes the derivative of the MultiSum.
+     *
+     * @return the derivative of the MultiSum as a Function object
+     */
     @Override
     public Function derivative() {
         Function[] derivatives = new Function[functions.length];
@@ -30,10 +52,24 @@ public class MultiSum extends Function {
         }
         return splitDerivative(derivatives);
     }
+
+    /**
+     * Splits the derivatives of the MultiSum into a new MultiSum object.
+     *
+     * @param derivatives the array of derivative functions
+     * @return a new MultiSum object representing the sum of the derivatives
+     */
     public MultiSum splitDerivative(Function[] derivatives) {
         return getMultiSum(derivatives, functions);
     }
 
+    /**
+     * Creates a new MultiSum object from the given derivative functions and original functions.
+     *
+     * @param derivatives the derivative functions
+     * @param functions   the original functions
+     * @return a new MultiSum object
+     */
     static MultiSum getMultiSum(Function[] derivatives, Function[] functions) {
         Function derivativesFirst;
         Function derivativesSecond;
@@ -46,6 +82,11 @@ public class MultiSum extends Function {
         return new MultiSum(derivativesFirst, derivativesSecond, derivativesOthers);
     }
 
+    /**
+     * Returns the string representation of the MultiSum.
+     *
+     * @return the string representation of the MultiSum
+     */
     @Override
     public String toString() {
         int numOfFunctions = functions.length;
