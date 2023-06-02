@@ -6,17 +6,13 @@ abstract class Function {
         double left = a;
         double right = b;
         double mid;
-        /*int maxIterations = 1000; // Set a maximum number of iterations */
-
-        /*int iterations = 0; */
-        while (right - left > epsilon /*&& iterations < maxIterations*/) {
+        while (right - left > epsilon) {
             mid = (left + right) / 2;
             if (valueAt(left) * valueAt(mid) > 0) {
                 left = mid;
             } else {
                 right = mid;
             }
-            /*iterations++;*/
         }
 
         return (left + right) / 2;
@@ -25,7 +21,7 @@ abstract class Function {
         return bisectionMethod(a, b, Math.pow(10, -5));
     }
     public abstract double newtonRaphsonMethod(double a, double epsilon);
-    public  double newtonRaphsonMethod(double a) {
+    public double newtonRaphsonMethod(double a) {
         return newtonRaphsonMethod(a, Math.pow(10, -5));
     }
     public Function taylorPolynomial(int n) {
@@ -56,39 +52,6 @@ abstract class Function {
 
         return new Polynomial(taylorItems);
 
-        /*
-        ItemInPolynomial[] taylorItems = new ItemInPolynomial[n + 1];
-        taylorItems[0] = new ItemInPolynomial(valueAt(0), 0);
-
-        if (taylorItems.length > 1) {
-            for (int i = 1; i < n + 1; i++) {
-                int count = 1;
-                double derivative = derivative().valueAt(i); // Calculate derivative at exponent i
-                for (int j = 1; j <= i; j++) {
-                    count *= j; // Calculate factorial by multiplying count with j
-                }
-                taylorItems[i] = new ItemInPolynomial(derivative / count, i);
-            }
-        }
-
-        return new Polynomial(taylorItems);
-         */
-
-        /*
-        ItemInPolynomial[] taylorItems = new ItemInPolynomial[n + 1];
-        taylorItems[0] = new ItemInPolynomial(valueAt(0), 0);
-        if(taylorItems.length > 1) {
-            for (int i = 1; i < n + 1; i++) {
-                int count = 1;
-                double derivative = derivative().valueAt(0);
-                for(int j = i; j != 0; j--) {
-                    count *= j;
-                }
-                taylorItems[i] = new ItemInPolynomial(derivative/count, i);
-            }
-        }
-        return new Polynomial(taylorItems);
-         */
     }
 
 }

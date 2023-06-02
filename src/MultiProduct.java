@@ -1,17 +1,23 @@
 public class MultiProduct extends Function {
     private final Function[] factors;
 
-    public MultiProduct(Function f, Function... h) {
-        Function[] factors = new Function[1 + h.length];
+    public MultiProduct(Function f, Function g, Function... args) {
+        Function[] factors = new Function[args.length + 2];
         factors[0] = f;
-        for(int i = 1; i < 1 + h.length; i++) {
-            factors[i] = h[i-1];
+        factors[1] = g;
+        for(int i = 2; i < args.length + 2; i++) {
+            factors[i] = args[i-2];
         }
         this.factors = factors;
     }
 
-    private MultiProduct(Function[] otherFunctions) {
-        this.factors = otherFunctions;
+    private MultiProduct(Function derivative, Function[] otherFunctions) {
+        Function[] factors = new Function[otherFunctions.length + 1];
+        factors[0] = derivative;
+        for(int i = 1; i < otherFunctions.length + 1; i++) {
+            factors[i] = otherFunctions[i-1];
+        }
+        this.factors = factors;
     }
 
     @Override
@@ -34,40 +40,15 @@ public class MultiProduct extends Function {
                     otherFunctions[index++] = factors[j];
                 }
             }
-            Function productOfOthers = new MultiProduct(otherFunctions);
-
             derivatives[i] = new MultiProduct(factors[i].derivative(),otherFunctions);
         }
-        return new MultiSum(derivatives);
-        /*
-        Function[] derivatives = new Function[functions.length];
-        for (int i = 0; i < functions.length; i++) {
-            Function[] otherFunctions = new Function[functions.length - 1];
-            int index = 0;
-            for (int j = 0; j < functions.length; j++) {
-                if (j != i) {
-                    otherFunctions[index++] = functions[j];
-                }
-            }
-            derivatives[i] = new MultiProduct(otherFunctions).derivative();
-        }
-        return new MultiSum(derivatives);
-         */
+        return splitDerivative(derivatives);
+
+    }
+    public MultiSum splitDerivative(Function[] derivatives) {
+        return MultiSum.getMultiSum(derivatives, factors);
     }
 
-    /*
-    @Override
-    public double bisectionMethod(double a, double b, double epsilon) {
-        return (a + b) / 2;
-    }
-     */
-
-    /*
-    @Override
-    public double bisectionMethod(double a, double b) {
-        return bisectionMethod(a, b, Math.pow(10, -5));
-    }
-     */
 
     @Override
     public double newtonRaphsonMethod(double a, double epsilon) {
@@ -76,20 +57,6 @@ public class MultiProduct extends Function {
         }
         return a;
     }
-
-    /*
-    @Override
-    public double newtonRaphsonMethod(double a) {
-        return newtonRaphsonMethod(a, Math.pow(10, -5));
-    }
-     */
-
-    /*
-    @Override
-    public Polynomial taylorPolynomial(int n) {
-        return new Polynomial(new ItemInPolynomial[]{new ItemInPolynomial(0.0, 0)});
-    }
-     */
 
     @Override
     public String toString() {
@@ -103,34 +70,7 @@ public class MultiProduct extends Function {
                 builder.append(" * ").append(factor.toString());
             }
         }
-        return "(" + builder.toString() + ")";
-        /*
-        return "(" + functions[0].toString() + " * " + functions[1].toString() + ")";
-         */
-        /*
-        StringBuilder sb = new StringBuilder();
-        sb.append("(");
-        for (int i = 0; i < functions.length; i++) {
-            sb.append(functions[i].toString());
-            if (i < functions.length - 1) {
-                sb.append(" + ");
-            }
-        }
-        sb.append(")");
-        return sb.toString();
-         */
-        /*
-        StringBuilder sb = new StringBuilder();
-        sb.append("(");
-        for (int i = 0; i < functions.length; i++) {
-            sb.append(functions[i].toString());
-            if (i < functions.length - 1) {
-                sb.append(" * ");
-            }
-        }
-        sb.append(")");
-        return sb.toString();
-         */
+        return "(" + builder + ")";
     }
 
     private double withdrawal(double x) {

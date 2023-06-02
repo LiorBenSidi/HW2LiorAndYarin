@@ -14,24 +14,4 @@ public class ItemInPolynomial {
     public int getExponent() {
         return exponent;
     }
-
-    /*
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        if (coefficient != 0) {
-            if (coefficient != 1) {
-                sb.append(coefficient);
-            }
-            if (exponent == 1) {
-                sb.append("x");
-            } else if (exponent > 1) {
-                sb.append("x^").append(exponent);
-            }
-        } else {
-            sb.append("0");
-        }
-        return sb.toString();
-    }
-     */
 }

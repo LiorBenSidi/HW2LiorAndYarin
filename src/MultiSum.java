@@ -1,8 +1,14 @@
 public class MultiSum extends Function {
     private final Function[] functions;
 
-    public MultiSum(Function... functions) {
-        this.functions = functions;
+    public MultiSum(Function f, Function g, Function... args) {
+        Function[] factors = new Function[args.length + 2];
+        factors[0] = f;
+        factors[1] = g;
+        for(int i = 2; i < args.length + 2; i++) {
+            factors[i] = args[i-2];
+        }
+        this.functions = factors;
     }
 
     @Override
@@ -20,22 +26,23 @@ public class MultiSum extends Function {
         for (int i = 0; i < functions.length; i++) {
             derivatives[i] = functions[i].derivative();
         }
-        return new MultiSum(derivatives);
+        return splitDerivative(derivatives);
+    }
+    public MultiSum splitDerivative(Function[] derivatives) {
+        return getMultiSum(derivatives, functions);
     }
 
-    /*
-    @Override
-    public double bisectionMethod(double a, double b, double epsilon) {
-        return (a + b) / 2;
+    static MultiSum getMultiSum(Function[] derivatives, Function[] functions) {
+        Function derivativesFirst;
+        Function derivativesSecond;
+        derivativesFirst = derivatives[0];
+        derivativesSecond = derivatives[1];
+        Function[] derivativesOthers = new Function[functions.length - 2];
+        for(int i = 0; i < functions.length - 2; i++) {
+            derivativesOthers[i] = derivatives[i + 2];
+        }
+        return new MultiSum(derivativesFirst, derivativesSecond, derivativesOthers);
     }
-     */
-
-    /*
-    @Override
-    public double bisectionMethod(double a, double b) {
-        return bisectionMethod(a, b, Math.pow(10, -5));
-    }
-     */
 
     @Override
     public double newtonRaphsonMethod(double a, double epsilon) {
@@ -44,20 +51,6 @@ public class MultiSum extends Function {
         }
         return a;
     }
-
-    /*
-    @Override
-    public double newtonRaphsonMethod(double a) {
-        return newtonRaphsonMethod(a, Math.pow(10, -5));
-    }
-     */
-
-    /*
-    @Override
-    public Polynomial taylorPolynomial(int n) {
-        return new Polynomial(new ItemInPolynomial[]{new ItemInPolynomial(0.0, 0)});
-    }
-     */
 
     @Override
     public String toString() {

@@ -15,53 +15,23 @@ public class Constant extends Function {
         return new Constant(0.0);
     }
 
-    /*
-    @Override
-    public double bisectionMethod(double a, double b, double epsilon) {
-        return (a + b) / 2;
-    }
-     */
-
-    /*
-    @Override
-    public double bisectionMethod(double a, double b) {
-        return bisectionMethod(a, b, Math.pow(10, -5));
-    }
-     */
-
     @Override
     public double newtonRaphsonMethod(double a, double epsilon) {
-        return a;
+        return 0.0; // Returns the default value of double.
     }
-
-    /*
-    @Override
-    public double newtonRaphsonMethod(double a) {
-        return newtonRaphsonMethod(a, Math.pow(10, -5));
-    }
-     */
-
-    /*
-    @Override
-    public Polynomial taylorPolynomial(int n) {
-        ItemInPolynomial[] terms = new ItemInPolynomial[1];
-        terms[0] = new ItemInPolynomial(value, 0);
-        return new Polynomial(terms);
-    }
-     */
 
     @Override
     public String toString() {
         if (isDoubleInt(value)) {
-            return "("  + String.valueOf((int) value) + ")";
+            return "("  + (int) value + ")";
         } else {
-            return "(" + String.valueOf(value) + ")";
+            return "(" + value + ")";
         }
     }
-    public boolean isDoubleInt(double d) {
-        //select a "tolerance range" for being an integer
-        double TOLERANCE = 1E-5;
-        //do not use (int)d, due to weird floating point conversions!
-        return Math.abs(Math.floor(d) - d) < TOLERANCE;
+
+    public boolean isDoubleInt(double number) {
+        final double TOLERANCE = 1E-5; //select a "tolerance range" for being an integer
+        return Math.abs(Math.floor(number) - number) < TOLERANCE;
+
     }
 }
