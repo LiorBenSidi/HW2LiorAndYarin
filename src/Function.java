@@ -1,38 +1,37 @@
 /**
- * The abstract base class for mathematical functions.
- * Subclasses must provide implementations for calculating the value of the function,
- * its string representation, and its derivative.
+ * The abstract class that represents a general function.
+ * Subclasses provide implementations for the value of the function, its string representation, and its derivative.
  */
 abstract class Function {
     /**
-     * Calculates the value of the function at the given input value.
+     * Calculates the value of the function at a given value.
      *
-     * @param x the input value
-     * @return the calculated value of the function
+     * @param x the input value.
+     * @return Returns the calculated value of the function.
      */
     public abstract double valueAt(double x);
 
     /**
-     * Returns the string representation of the function.
+     * Gets the string representation of the function.
      *
-     * @return the string representation of the function
+     * @return Returns the string representation of the function.
      */
     public abstract String toString();
 
     /**
      * Calculates the derivative of the function.
      *
-     * @return the derivative of the function
+     * @return Returns the derivative of the function
      */
     public abstract Function derivative();
 
     /**
-     * Performs the bisection method to find the root of the function within the given interval.
+     * Performs the bisection method for finding the root of the function according the given interval.
      *
-     * @param a       the left endpoint of the interval
-     * @param b       the right endpoint of the interval
-     * @param epsilon the desired accuracy of the result
-     * @return the root of the function within the specified interval
+     * @param a The left endpoint.
+     * @param b The right endpoint.
+     * @param epsilon the desired accuracy of the result.
+     * @return Returns the root of the function given the specified interval.
      */
     public  double bisectionMethod(double a, double b, double epsilon) {
         double left = a;
@@ -51,12 +50,12 @@ abstract class Function {
     }
 
     /**
-     * Performs the bisection method to find the root of the function within the given interval
+     * Performs the bisection method for finding the root of the function according the given interval
      * with a default accuracy of 10^-5.
      *
-     * @param a the left endpoint of the interval
-     * @param b the right endpoint of the interval
-     * @return the root of the function within the specified interval
+     * @param a the left endpoint.
+     * @param b the right endpoint.
+     * @return Returns the root of the function given the specified interval.
      */
     public double bisectionMethod(double a, double b) {
         return bisectionMethod(a, b, Math.pow(10, -5));
