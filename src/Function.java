@@ -115,13 +115,12 @@ abstract class Function {
         if (taylorItems.length > 1) {
             for (int i = 1; i < n + 1; i++) {
                 function =  function.derivative();
-                double count = 1.0;
+                double factorial = 1.0;
                 double derivative = function.valueAt(0);
                 for (int j = 1; j <= i; j++) {
-                    count *= j;
+                    factorial *= j;
                 }
-                double dc = derivative / count;
-                taylorItems[i] = new ItemInPolynomial(dc, i);
+                taylorItems[i] = new ItemInPolynomial((derivative / factorial), i);
             }
         }
 
