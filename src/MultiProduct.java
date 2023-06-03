@@ -41,7 +41,7 @@ public class MultiProduct extends Function {
     @Override
     public double valueAt(double x) {
         double result = 1.0;
-        for (Function factor : functions) {
+        for(Function factor : functions) {
             result *= factor.valueAt(x);
         }
 
