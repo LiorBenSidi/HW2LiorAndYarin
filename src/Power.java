@@ -29,7 +29,7 @@ public class Power extends Function {
      */
     @Override
     public Function derivative() {
-        if(n == 1) {
+        if (n == 1) {
             return f.derivative();
         } else {
             return new MultiProduct(new Constant(n), new Power(f, n - 1), f.derivative());

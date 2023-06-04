@@ -54,7 +54,7 @@ public class Date {
         if(other == null) {
             return false;
         }
-        if(!(this.hashCode() == other.hashCode()) || !(other instanceof Date)) { // בעיה מבחינת אם איכשהו אותו מס' גיבוב
+        if(!(this.hashCode() == other.hashCode()) || !(other instanceof Date)) {
             return false;
         }
         Date otherDate = (Date) other;
@@ -85,17 +85,17 @@ public class Date {
         int MM = this.month;
         int YYYY = this.year;
         String strDD, strMM, strYYYY;
-        if(DD < 10) {
+        if (DD < 10) {
             strDD = "0" + DD;
         } else {
             strDD = String.valueOf(DD);
         }
-        if(MM < 10) {
+        if (MM < 10) {
             strMM = "0" + MM;
         } else {
             strMM = String.valueOf(MM);
         }
-        if(YYYY > -1) {
+        if (YYYY > -1) {
             if(YYYY < 10) {
                 strYYYY = "000" + YYYY;
             } else if(YYYY < 100) {

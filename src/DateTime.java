@@ -107,12 +107,12 @@ public class DateTime extends Date {
         int mm = this.minute;
         String strHh;
         String strMm;
-        if(hh < 10) {
+        if (hh < 10) {
             strHh = "0" + hh;
         } else {
             strHh = String.valueOf(hh);
         }
-        if(mm < 10) {
+        if (mm < 10) {
             strMm = "0" + mm;
         } else {
             strMm = String.valueOf(mm);

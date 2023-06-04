@@ -13,7 +13,7 @@ public class Polynomial extends Function {
      */
     public Polynomial(double... args) {
         this.polynomial = new ItemInPolynomial[args.length];
-        for (int i = 0; i < args.length; i++) {
+        for(int i = 0; i < args.length; i++) {
             if (args[i] != 0) {
                 this.polynomial[i] = new ItemInPolynomial(args[i], i);
             } else {
@@ -32,15 +32,6 @@ public class Polynomial extends Function {
     }
 
     /**
-     * Returns the polynomial array.
-     *
-     * @return The polynomial array
-     */
-    public ItemInPolynomial[] getPolynomial() {
-        return polynomial;
-    }
-
-    /**
      * Evaluates the polynomial function at the specified value of x.
      *
      * @param x The value of x
@@ -49,10 +40,10 @@ public class Polynomial extends Function {
     @Override
     public double valueAt(double x) {
         double result = 0.0;
-        for(int i = 0; i < polynomial.length; i++) {
-            if (polynomial[i] != null) { // Check for null terms
-                double coefficient = polynomial[i].getCoefficient();
-                int exponent = polynomial[i].getExponent();
+        for (ItemInPolynomial itemInPolynomial : polynomial) {
+            if (itemInPolynomial != null) { // Check for null terms
+                double coefficient = itemInPolynomial.getCoefficient();
+                int exponent = itemInPolynomial.getExponent();
                 result += coefficient * Math.pow(x, exponent);
             }
         }
@@ -90,14 +81,10 @@ public class Polynomial extends Function {
         boolean isFirstItem = false;
         int i = 0;
         while (i < polynomial.length) {
-            if (polynomial[i] == null) {
-                i++;
-            } else {
+            if (polynomial[i] != null) {
                 double coefficient = polynomial[i].getCoefficient();
                 int exponent = polynomial[i].getExponent();
-                if (coefficient == 0.0) {
-                    i++;
-                } else {
+                if (coefficient != 0.0) {
                     if (isFirstItem && coefficient > 0.0) {
                         builder.append(" + ");
                     }
@@ -117,9 +104,9 @@ public class Polynomial extends Function {
                         }
                     }
                     isFirstItem = true;
-                    i++;
                 }
             }
+            i++;
         }
         if (builder.length() == 0) {
             builder.append("0");

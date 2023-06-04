@@ -100,17 +100,6 @@ abstract class Function {
     public Function taylorPolynomial(int n) {
         Function function = this;
         ItemInPolynomial[] taylorItems = new ItemInPolynomial[n + 1];
-        /*
-        if(function instanceof Polynomial) {
-            for(int i = 0; (i < ((Polynomial) function).getPolynomial().length) && (i < n + 1); i++) {
-                if(((Polynomial) function).getPolynomial()[i] != null) {
-                    taylorItems[i] = new ItemInPolynomial(((Polynomial) function).getPolynomial()[i].getCoefficient(),i);
-
-                }
-            }
-            return new Polynomial(taylorItems);
-        }
-         */
         taylorItems[0] = new ItemInPolynomial(valueAt(0), 0);
         if (taylorItems.length > 1) {
             for (int i = 1; i < n + 1; i++) {
